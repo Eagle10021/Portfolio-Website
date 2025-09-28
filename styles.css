@@ -1,0 +1,332 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+.center-text {
+    text-align: center;
+}
+
+/* Body and Global Defaults */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Typography */
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #7dedfc;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #f693ff;
+    
+    /* Consolidated styling to draw the line underneath */
+    margin-top: 40px;
+    margin-bottom: 30px; 
+    padding-bottom: 5px;
+    border-bottom: 2px solid #f693ff;
+    text-align: center;
+}
+
+
+h3 {
+    font-size: 20px;
+    color: #fd8671;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6; /* Improves readability */
+    font-size: 16px;
+    text-align: justify; /* Justified text */
+    margin-bottom: 10px;
+}
+
+
+
+/* Main Content Sections (Box Model & Layout) */
+.content-section {
+    max-width: 1000px; /* Max width for readability */
+    margin: 20px auto; /* Centers content horizontally */
+    padding: 20px;
+    background-color: #282b3c;
+    border: 1px solid #505050;
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Header and Navigation */
+header {
+    background-color: #292a3c;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+nav {
+    background-color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+ul {
+    list-style-type: none; /* Removes bullets */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0;
+}
+
+li {
+    display: inline; /* Makes links horizontal */
+    margin: 0 15px;
+    padding: 5px 0;
+}
+
+a {
+    text-decoration: none; /* Removes underline */
+    color: #303450;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+a:hover { /* Pseudo-selector for hover effect */
+    color: #ffffff;
+    background-color: #f693ff;
+}
+
+footer a { /* Footer link styling */
+    color: #7dedfc;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+/* Images and Media */
+#headshot { /* Profile photo styling (ID Selector) */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular image */
+    border: 3px solid #7dedfc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 20px auto;
+    object-fit: cover;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+iframe { /* General iframe styling (for YouTube) */
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border: none;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+#photography-video {
+    margin-top: 30px;
+}
+
+
+/* Spotify Track Embeds */
+.spotify-track {
+    text-align: center;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.spotify-track .track-info{
+    display: inline-block; /* Allows text to sit next to the iframe */
+    margin-right: 15px;
+    vertical-align: middle; /* Aligns text vertically with iframe */
+    color: #e86ef3;
+    font-weight: bold;
+    margin-top: 0px;
+    max-width: 250px;
+    text-align: right;
+}
+
+.spotify-track iframe{
+    display: inline-block; /* Allows iframe to sit next to the text */
+    margin: 0;
+    border-radius: 8px;
+    vertical-align: middle;
+}
+#favorite-songs {
+    margin-top: 30px;
+}
+
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate; /* Separate borders for better visibility */
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden; /* Ensures rounded corners are applied */
+    border-spacing: 0; /* Removes spacing between cells */
+}
+
+caption {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #7dedfc;
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+th, td {
+    border: 2px solid #505050;
+    text-align: center;
+    padding: 10px;
+}
+
+th { /* Table header styling */
+    background-color: #282b3c;
+    color: #7dedfc;
+    border-color: #505050;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) { /* Zebra-striping effect */
+    background-color: #333333;
+}
+
+/* Rounded corners for the first and last header cells */
+table tr:first-child th:first-child{
+    border-top-left-radius: 5px;
+}
+
+/* Rounded corners for the first and last header cells */
+table tr:first-child th:last-child{
+    border-top-right-radius: 5px;
+}
+
+/* Form Styling */
+form {
+    padding: 20px;
+    border: 1px solid #505050;
+    border-radius: 5px;
+    display: grid; /* Simple layout for form elements */
+    gap: 10px; /* Provides consistent spacing without <br> tags */
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+textarea, 
+select {
+    width: 100%; /* Consistent field width */
+    padding: 10px;
+    border: 1px solid #f693ff;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-button { /* Button styling (Class Selector) */
+    background-color: #f693ff;
+    color: #303450;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.form-button:hover {
+    background-color: #7dedfc;
+}
+
+/* Other Elements */
+#hobby-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+li strong {
+    color: #7dedfc;
+}
+
+blockquote { /* Quote styling */
+    border-left: 5px solid #fd8671;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    background-color: #333333;
+}
+
+aside { /* Aside box styling */
+    border: 1px dashed #7dedfc;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #333333;
+    border-radius: 5px;
+}
+
+/* Footer Styling (Flexbox layout) */
+footer {
+    background-color: #1a1a1a;
+    display: flex; /* Align items horizontally */
+    justify-content: space-between; 
+    padding: 20px 50px;  
+    font-size: 14px;
+    color: #cccccc;
+    margin-top: 40px;
+    text-align: left; 
+}
+
+footer p {
+    margin-bottom: 0; 
+}
+
+/* Custom Horizontal Rule (Section Separator) */
+hr {
+    border: none; 
+    height: 3px; 
+    background-color: #7dedfc; 
+    max-width: 1000px;
+    margin: 40px auto; 
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(125, 237, 252, 0.6); 
+}
