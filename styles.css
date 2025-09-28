@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
 }
 .center-text {
     text-align: center;
@@ -14,6 +13,8 @@ body {
     background-color: #000000;
     color: #ffffff;
     margin: 0;
+    padding: 10px;
+    width: 100%; /* Ensures full width on different screen sizes */
 }
 
 /* Typography */
@@ -60,7 +61,6 @@ p {
 
 /* Main Content Sections (Box Model & Layout) */
 .content-section {
-    width: 95%;
     max-width: 1000px; /* Max width for readability */
     margin: 20px auto; /* Centers content horizontally */
     padding: 20px;
@@ -74,9 +74,6 @@ header {
     background-color: #292a3c;
     padding-bottom: 10px;
     border-radius: 5px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
 }
 
 nav {
@@ -318,7 +315,6 @@ footer {
     color: #cccccc;
     margin-top: 40px;
     text-align: left; 
-
 }
 
 footer p {
