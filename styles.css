@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
 }
 .center-text {
     text-align: center;
@@ -13,7 +14,6 @@ body {
     background-color: #000000;
     color: #ffffff;
     margin: 0;
-    width: 100%; /* Ensures full width on different screen sizes */
 }
 
 /* Typography */
