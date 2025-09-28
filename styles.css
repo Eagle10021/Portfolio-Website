@@ -14,6 +14,7 @@ body {
     color: #ffffff;
     margin: 0;
     padding: 10px;
+    width: 100%; /* Ensures full width on different screen sizes */
 }
 
 /* Typography */
