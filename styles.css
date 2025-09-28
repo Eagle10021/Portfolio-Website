@@ -313,7 +313,8 @@ footer {
     font-size: 14px;
     color: #cccccc;
     margin-top: 40px;
-    text-align: center; 
+    text-align: left; 
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 footer p {
