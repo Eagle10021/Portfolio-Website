@@ -73,6 +73,9 @@ header {
     background-color: #292a3c;
     padding-bottom: 10px;
     border-radius: 5px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 nav {
@@ -314,11 +317,11 @@ footer {
     color: #cccccc;
     margin-top: 40px;
     text-align: left; 
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 footer p {
     margin-bottom: 0; 
+    text-wrap: auto; /* Ensures text wraps properly */
 }
 
 /* Custom Horizontal Rule (Section Separator) */
