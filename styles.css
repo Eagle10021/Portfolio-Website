@@ -60,6 +60,7 @@ p {
 
 /* Main Content Sections (Box Model & Layout) */
 .content-section {
+    width: 95%;
     max-width: 1000px; /* Max width for readability */
     margin: 20px auto; /* Centers content horizontally */
     padding: 20px;
@@ -73,6 +74,9 @@ header {
     background-color: #292a3c;
     padding-bottom: 10px;
     border-radius: 5px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 nav {
