@@ -27,9 +27,9 @@
   text-align: center;
 }
 
-/* Featured images: span 2 columns */
+
 .gallery-feature {
-  grid-column: span 2;
+  grid-column: span 3;
 }
 
 @media (max-width: 900px) {

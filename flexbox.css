@@ -31,23 +31,28 @@
 }
 
 .project-btn {
-  background: transparent;
-  color: #7dedfc;
+  background: transparent !important;
+  color: #7dedfc !important;
+  border: 2px solid #7dedfc !important;
   font-weight: bold;
   padding: 12px 32px;
-  border: 2px solid #7dedfc;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
   width: auto;
   display: inline-block;
   text-align: center;
   margin-top: 15px;
   font-size: 1rem;
+  transition: all 0.3s;
 }
 
 .project-btn:hover {
-  background: #f693ff;
-  color: #222145;
-  border-color: #21bcd6;   
+  background: #7dedfc !important;
+  color: #222145 !important;
+  border-color: #21bcd6 !important;
 }
+
+.project-card p {
+  text-align: start;
+}
+
