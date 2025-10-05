@@ -1,0 +1,53 @@
+.projects-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background: #282b3a;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #2224;
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px;
+}
+
+.project-card h3 {
+  color: #f693ff;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.project-card .tech-list {
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+.project-btn {
+  background: transparent;
+  color: #7dedfc;
+  font-weight: bold;
+  padding: 12px 32px;
+  border: 2px solid #7dedfc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.project-btn:hover {
+  background: #f693ff;
+  color: #222145;
+  border-color: #21bcd6;   
+}
