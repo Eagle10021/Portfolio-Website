@@ -309,19 +309,18 @@ aside { /* Aside box styling */
 
 /* Footer Styling (Flexbox layout) */
 footer {
-    background-color: #1a1a1a;
-    display: flex; /* Align items horizontally */
-    justify-content: space-between; 
-    padding: 20px 50px;  
-    font-size: 14px;
-    color: #cccccc;
-    margin-top: 40px;
-    text-align: left; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 10px;
+    font-size: 13px;
+    text-align: left;
 }
 
 footer p {
-    margin-bottom: 0; 
-    text-wrap: normal; /* Prevents text overflow */
+    width: 100%;
+    margin-bottom: 6px;
+    word-break: break-all; /* Prevents overflow from long links */
 }
 
 /* Custom Horizontal Rule (Section Separator) */
