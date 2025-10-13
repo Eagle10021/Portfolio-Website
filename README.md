@@ -23,6 +23,7 @@ The site is designed to be a **simple, responsive, and aesthetically pleasing si
 
 - **HTML5** (Structure)  
 - **CSS3** (Styling and Layout)  
+- **JavaScript** (Scripting)
 
 ---
 
