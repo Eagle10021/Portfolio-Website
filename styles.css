@@ -315,6 +315,8 @@ footer {
     padding: 20px 10px;
     font-size: 13px;
     text-align: left;
+    background: #191a28;
+    color: #ccc;
 }
 
 footer p {
@@ -332,4 +334,91 @@ hr {
     margin: 40px auto; 
     border-radius: 2px;
     box-shadow: 0 0 8px rgba(125, 237, 252, 0.6); 
+}
+
+
+/* CSS for Interactive Page */
+.dark-theme {
+   background-color: #121212;
+   color: white;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 16px 24px 16px;
+}
+
+section {
+    margin-bottom: 32px;
+    padding: 18px 0;
+    border-bottom: 2px solid #f693ff;
+    background: #191a28;
+    border-radius: 7px;
+}
+
+section h2 {
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+button, input[type="text"], input[type="number"], input[type="password"] {
+    font-size: 1rem;
+    padding: 8px 14px;
+    margin: 10px 7px 10px 0;
+    border-radius: 7px;
+    border: 1px solid #f693ff;
+    background: #222;
+    color: #C7F6FF;
+}
+
+button:hover, input:focus {
+    background: #f693ff;
+    color: #191a28;
+    font-weight: 600;
+    outline: none;
+}
+
+#color-changer {
+    display: block;
+    margin: 14px auto;
+    border-radius: 6px;
+    border: 1.5px solid #f693ff;
+}
+
+#skills-list, #todo-list {
+    list-style: disc inside;
+    padding-left: 18px;
+    margin-top: 12px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all direct children horizontally */
+}
+
+section input,
+section button,
+section p,
+section div,
+section ul {
+    width: auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+#skills-list, #todo-list {
+    align-items: center;
+    width: 80%;
+}
+
+section input[type="text"],
+section input[type="number"],
+section input[type="password"] {
+    width: 270px;          /*input fields have fixed width*/
+    max-width: 90%;        /* shrink gracefully on mobile */
+    display: block;
+    margin: 0 auto 15px auto; /* center horizontally, space below */
+    text-align: center;
 }
