@@ -342,6 +342,10 @@ hr {
    background-color: #121212;
    color: white;
 }
+.dark-theme section{
+   background-color: #ffffff;
+   color: black;
+}
 
 main {
     max-width: 800px;
