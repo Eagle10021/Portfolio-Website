@@ -414,7 +414,7 @@ section ul {
 
 #skills-list, #todo-list {
     align-items: center;
-    width: 80%;
+    width: 90%;
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: calc(100% - 40px);
