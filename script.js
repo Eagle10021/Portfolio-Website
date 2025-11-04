@@ -216,7 +216,7 @@ document.getElementById("pw-strength-btn").addEventListener("click", function ()
 function passwordStrength(pw) {
     let strengthPoints = 0; // Counter for criteria met
     // Checks using regular expressions (regex)
-    if (pw.length >= 8) strengthPoints++; // +1 for length 8+
+    if (pw.length >= 8) strengthPoints++;   // +1 for length 8+
     if (/[a-z]/.test(pw)) strengthPoints++; // +1 for at least one lowercase letter
     if (/[A-Z]/.test(pw)) strengthPoints++; // +1 for at least one uppercase letter
     if (/\d/.test(pw)) strengthPoints++;    // +1 for at least one number
