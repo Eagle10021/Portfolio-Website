@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Arshdeep Sahota Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="flexbox.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="cyber.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="cyber.js" defer></script>
+</head>
+
+<body>
+  <div class="transition-overlay"></div>
+  <div id="cyber-toggle-container">
+    <button id="cyber-toggle" title="Protocol Switch">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+        <line x1="12" y1="2" x2="12" y2="12"></line>
+      </svg>
+    </button>
+  </div>
+
+  <header>
+    <h1>Arshdeep Singh Sahota</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flexbox-projects.html">Projects</a></li>
+        <li><a href="grid-gallery.html">Gallery</a></li>
+        <li><a href="bootstrap-resume.html">Resume</a></li>
+        <li><a href="interactive.html">Interactive</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="cyber-content-scroll">
+    <main class="content-section">
+      <h2>My Projects</h2>
+      <div class="projects-flex-container">
+        <div class="project-card">
+          <h3>Lab Portfolio Website</h3>
+          <p>A responsive portfolio created for CST8285, featuring multi-page navigation and custom CSS layouts.</p>
+          <ul class="tech-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Flexbox</li>
+          </ul>
+          <br>
+          <a href="index.html" class="project-btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Responsive Photo Gallery</h3>
+          <p>A grid-based photo gallery for hobby and travel images, optimized for mobile and desktop.</p>
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>CSS Grid</li>
+          </ul>
+          <br>
+          <a href="grid-gallery.html" class="project-btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Bootstrap Resume</h3>
+          <p>Professional resume layout using Bootstrap cards, badges, and responsive grid system.</p>
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>Bootstrap</li>
+          </ul>
+          <br>
+          <a href="bootstrap-resume.html" class="project-btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Interactive HTML Page</h3>
+          <p>An interactive web page featuring various JavaScript functionalities and user engagement.</p>
+          <ul class="tech-list">
+            <li>HTML</li>
+            <li>JavaScript</li>
+          </ul>
+          <br>
+          <a href="interactive.html" class="project-btn">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Legion Controller</h3>
+          <p>A python-based script for controlling Lenovo Legion laptop keyboard RGB and charging modes on Linux.</p>
+          <ul class="tech-list">
+            <li>Python</li>
+            <li>Linux</li>
+            <li>RGB</li>
+          </ul>
+          <br>
+          <a href="https://github.com/Eagle10021/Legion-Controller" class="project-btn" target="_blank">View Repo</a>
+        </div>
+        <div class="project-card">
+          <h3>Custom Cursors Linux</h3>
+          <p>A web tool to convert Windows (.ani) cursor schemes to Linux (GNOME/KDE/XFCE) formats instantly.</p>
+          <ul class="tech-list">
+            <li>Web Tech</li>
+            <li>Bash</li>
+            <li>Linux</li>
+          </ul>
+          <br>
+          <a href="https://github.com/Eagle10021/Custom-Cursors-Linux" class="project-btn" target="_blank">View Repo</a>
+        </div>
+        <div class="project-card">
+          <h3>AC Print Guide Linux</h3>
+          <p>A comprehensive guide and toolset for setting up Algonquin College printing services on Linux
+            distributions.</p>
+          <ul class="tech-list">
+            <li>Linux</li>
+            <li>Docs</li>
+            <li>CUPS</li>
+          </ul>
+          <br>
+          <a href="https://github.com/Eagle10021/AC-Print-Guide-Linux" class="project-btn" target="_blank">View Repo</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p>Email: <a href="mailto:eagle.sahota@gmail.com">eagle.sahota@gmail.com</a></p>
+    <p>Phone: 343 507-4322</p>
+    <p>City: Ottawa, Ontario, Canada</p>
+    <p>Instagram: <a href="https://www.instagram.com/omoide_no_iso_kara/" target="_blank">@omoide_no_iso_kara</a></p>
+    <p>&copy; 2025 Arshdeep Singh Sahota. All Rights Reserved.</p>
+    <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.7;">
+      <p>Music: 'Snowfall' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

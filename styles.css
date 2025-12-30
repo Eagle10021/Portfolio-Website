@@ -2,8 +2,10 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+    box-sizing: border-box;
+    /* Includes padding and border in element's total width and height */
 }
+
 .center-text {
     text-align: center;
 }
@@ -14,6 +16,11 @@ body {
     background-color: #000000;
     color: #ffffff;
     margin: 0;
+}
+
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
 }
 
 /* Typography */
@@ -32,10 +39,10 @@ h2 {
     font-size: 28px;
     font-weight: bold;
     color: #f693ff;
-    
+
     /* Consolidated styling to draw the line underneath */
     margin-top: 40px;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
     padding-bottom: 5px;
     border-bottom: 2px solid #f693ff;
     text-align: center;
@@ -50,9 +57,11 @@ h3 {
 }
 
 p {
-    line-height: 1.6; /* Improves readability */
+    line-height: 1.6;
+    /* Improves readability */
     font-size: 16px;
-    text-align: justify; /* Justified text */
+    text-align: justify;
+    /* Justified text */
     margin-bottom: 10px;
 }
 
@@ -60,12 +69,15 @@ p {
 
 /* Main Content Sections (Box Model & Layout) */
 .content-section {
-    max-width: 1000px; /* Max width for readability */
-    margin: 20px auto; /* Centers content horizontally */
+    max-width: 1000px;
+    /* Max width for readability */
+    margin: 20px auto;
+    /* Centers content horizontally */
     padding: 20px;
     background-color: #282b3c;
     border: 1px solid #505050;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
+    /* Rounded corners */
 }
 
 /* Header and Navigation */
@@ -88,19 +100,22 @@ nav {
 }
 
 ul {
-    list-style-type: none; /* Removes bullets */
+    list-style-type: none;
+    /* Removes bullets */
     font-family: 'Courier New', Courier, monospace;
     padding: 0;
 }
 
 li {
-    display: inline; /* Makes links horizontal */
+    display: inline;
+    /* Makes links horizontal */
     margin: 0 15px;
     padding: 5px 0;
 }
 
 a {
-    text-decoration: none; /* Removes underline */
+    text-decoration: none;
+    /* Removes underline */
     color: #303450;
     font-weight: bold;
     padding: 5px 10px;
@@ -108,22 +123,26 @@ a {
     transition: background-color 0.3s;
 }
 
-a:hover { /* Pseudo-selector for hover effect */
+a:hover {
+    /* Pseudo-selector for hover effect */
     color: #ffffff;
     background-color: #f693ff;
 }
 
-footer a { /* Footer link styling */
+footer a {
+    /* Footer link styling */
     color: #7dedfc;
     text-decoration: underline;
     font-weight: normal;
 }
 
 /* Images and Media */
-#headshot { /* Profile photo styling (ID Selector) */
+#headshot {
+    /* Profile photo styling (ID Selector) */
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* Circular image */
+    border-radius: 50%;
+    /* Circular image */
     border: 3px solid #7dedfc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     display: block;
@@ -137,7 +156,8 @@ img {
     display: block;
 }
 
-iframe { /* General iframe styling (for YouTube) */
+iframe {
+    /* General iframe styling (for YouTube) */
     display: block;
     margin: 20px auto;
     max-width: 100%;
@@ -145,6 +165,7 @@ iframe { /* General iframe styling (for YouTube) */
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
+
 #photography-video {
     margin-top: 30px;
 }
@@ -157,10 +178,12 @@ iframe { /* General iframe styling (for YouTube) */
     margin-bottom: 25px;
 }
 
-.spotify-track .track-info{
-    display: inline-block; /* Allows text to sit next to the iframe */
+.spotify-track .track-info {
+    display: inline-block;
+    /* Allows text to sit next to the iframe */
     margin-right: 15px;
-    vertical-align: middle; /* Aligns text vertically with iframe */
+    vertical-align: middle;
+    /* Aligns text vertically with iframe */
     color: #e86ef3;
     font-weight: bold;
     margin-top: 0px;
@@ -168,12 +191,14 @@ iframe { /* General iframe styling (for YouTube) */
     text-align: right;
 }
 
-.spotify-track iframe{
-    display: inline-block; /* Allows iframe to sit next to the text */
+.spotify-track iframe {
+    display: inline-block;
+    /* Allows iframe to sit next to the text */
     margin: 0;
     border-radius: 8px;
     vertical-align: middle;
 }
+
 #favorite-songs {
     margin-top: 30px;
 }
@@ -182,11 +207,14 @@ iframe { /* General iframe styling (for YouTube) */
 /* Table Styling */
 table {
     width: 100%;
-    border-collapse: separate; /* Separate borders for better visibility */
+    border-collapse: separate;
+    /* Separate borders for better visibility */
     margin-top: 20px;
     border-radius: 5px;
-    overflow: hidden; /* Ensures rounded corners are applied */
-    border-spacing: 0; /* Removes spacing between cells */
+    overflow: hidden;
+    /* Ensures rounded corners are applied */
+    border-spacing: 0;
+    /* Removes spacing between cells */
 }
 
 caption {
@@ -198,13 +226,15 @@ caption {
     padding-left: 5px;
 }
 
-th, td {
+th,
+td {
     border: 2px solid #505050;
     text-align: center;
     padding: 10px;
 }
 
-th { /* Table header styling */
+th {
+    /* Table header styling */
     background-color: #282b3c;
     color: #7dedfc;
     border-color: #505050;
@@ -213,17 +243,18 @@ th { /* Table header styling */
     text-transform: uppercase;
 }
 
-tr:nth-child(even) { /* Zebra-striping effect */
+tr:nth-child(even) {
+    /* Zebra-striping effect */
     background-color: #333333;
 }
 
 /* Rounded corners for the first and last header cells */
-table tr:first-child th:first-child{
+table tr:first-child th:first-child {
     border-top-left-radius: 5px;
 }
 
 /* Rounded corners for the first and last header cells */
-table tr:first-child th:last-child{
+table tr:first-child th:last-child {
     border-top-right-radius: 5px;
 }
 
@@ -232,8 +263,10 @@ form {
     padding: 20px;
     border: 1px solid #505050;
     border-radius: 5px;
-    display: grid; /* Simple layout for form elements */
-    gap: 10px; /* Provides consistent spacing without <br> tags */
+    display: grid;
+    /* Simple layout for form elements */
+    gap: 10px;
+    /* Provides consistent spacing without <br> tags */
 }
 
 label {
@@ -242,12 +275,13 @@ label {
     display: block;
 }
 
-input[type="text"], 
-input[type="email"], 
-input[type="tel"], 
-textarea, 
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
 select {
-    width: 100%; /* Consistent field width */
+    width: 100%;
+    /* Consistent field width */
     padding: 10px;
     border: 1px solid #f693ff;
     background-color: #333333;
@@ -261,7 +295,8 @@ textarea {
     resize: vertical;
 }
 
-.form-button { /* Button styling (Class Selector) */
+.form-button {
+    /* Button styling (Class Selector) */
     background-color: #f693ff;
     color: #303450;
     font-weight: bold;
@@ -291,7 +326,8 @@ li strong {
     color: #7dedfc;
 }
 
-blockquote { /* Quote styling */
+blockquote {
+    /* Quote styling */
     border-left: 5px solid #fd8671;
     padding: 10px 20px;
     margin: 20px 0;
@@ -299,7 +335,8 @@ blockquote { /* Quote styling */
     background-color: #333333;
 }
 
-aside { /* Aside box styling */
+aside {
+    /* Aside box styling */
     border: 1px dashed #7dedfc;
     padding: 15px;
     margin: 20px 0;
@@ -316,35 +353,37 @@ footer {
     font-size: 13px;
     text-align: left;
     background: #191a28;
-    color: #ccc;
+    color: #ffffff;
 }
 
 footer p {
     width: 100%;
     margin-bottom: 6px;
-    word-break: break-all; /* Prevents overflow from long links */
+    word-break: break-all;
+    /* Prevents overflow from long links */
 }
 
 /* Custom Horizontal Rule (Section Separator) */
 hr {
-    border: none; 
-    height: 3px; 
-    background-color: #7dedfc; 
+    border: none;
+    height: 3px;
+    background-color: #7dedfc;
     max-width: 1000px;
-    margin: 40px auto; 
+    margin: 40px auto;
     border-radius: 2px;
-    box-shadow: 0 0 8px rgba(125, 237, 252, 0.6); 
+    box-shadow: 0 0 8px rgba(125, 237, 252, 0.6);
 }
 
 
 /* CSS for Interactive Page */
 .dark-theme {
-   background-color: #121212;
-   color: white;
+    background-color: #121212;
+    color: white;
 }
-.dark-theme section{
-   background-color: #ffffff;
-   color: black;
+
+.dark-theme section {
+    background-color: #ffffff;
+    color: black;
 }
 
 main {
@@ -366,7 +405,10 @@ section h2 {
     margin-bottom: 12px;
 }
 
-button, input[type="text"], input[type="number"], input[type="password"] {
+button,
+input[type="text"],
+input[type="number"],
+input[type="password"] {
     font-size: 1rem;
     padding: 8px 14px;
     margin: 10px 7px 10px 0;
@@ -376,7 +418,8 @@ button, input[type="text"], input[type="number"], input[type="password"] {
     color: #C7F6FF;
 }
 
-button:hover, input:focus {
+button:hover,
+input:focus {
     background: #f693ff;
     color: #191a28;
     font-weight: 600;
@@ -390,7 +433,8 @@ button:hover, input:focus {
     border: 1.5px solid #f693ff;
 }
 
-#skills-list, #todo-list {
+#skills-list,
+#todo-list {
     list-style: disc inside;
     padding-left: 18px;
     margin-top: 12px;
@@ -399,7 +443,8 @@ button:hover, input:focus {
 section {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers all direct children horizontally */
+    align-items: center;
+    /* Centers all direct children horizontally */
 }
 
 section input,
@@ -412,7 +457,8 @@ section ul {
     text-align: center;
 }
 
-#skills-list, #todo-list {
+#skills-list,
+#todo-list {
     align-items: center;
     width: 90%;
     word-wrap: break-word;
@@ -423,9 +469,60 @@ section ul {
 section input[type="text"],
 section input[type="number"],
 section input[type="password"] {
-    width: 270px;          /*input fields have fixed width*/
-    max-width: 90%;        /* shrink gracefully on mobile */
+    width: 270px;
+    /*input fields have fixed width*/
+    max-width: 90%;
+    /* shrink gracefully on mobile */
     display: block;
-    margin: 0 auto 15px auto; /* center horizontally, space below */
+    margin: 0 auto 15px auto;
+    /* center horizontally, space below */
     text-align: center;
+}
+
+/* --- HUD SPLASH SCREEN (STANDARD VERSION) --- */
+#standard-splash {
+    position: fixed;
+    inset: 0;
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10005;
+}
+
+.hud-iris {
+    width: 220px;
+    height: 220px;
+    border: 2px solid #7dedfc;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 0 30px rgba(125, 237, 252, 0.2);
+}
+
+.hud-iris img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.hud-scanner {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(125, 237, 252, 0.5), transparent);
+}
+
+#standard-hero-name {
+    font-size: 3.5rem;
+    font-family: 'Rajdhani', sans-serif;
+    color: #ffffff;
+    letter-spacing: 12px;
+    margin: 0;
+    font-weight: 700;
 }

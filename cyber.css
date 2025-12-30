@@ -1,0 +1,672 @@
+/* 
+   🌸 ANIME SPIRIT - "SUNSET MIRAI" FINAL 🌸
+   Themes: Beyond the Boundary (Glasses & Sunset), Nokotan (Fun/Sky), Lycoris Recoil (Lily Elegance)
+   NO AI IMAGES - Hand-crafted SVGs only.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --mirai-red: #d63031;
+    /* Iconic Glasses Red */
+    --lily-crimson: #ff1744;
+    /* Lycoris Red */
+    --sunset-gold: #ffe082;
+    --shika-sky: #e1f5fe;
+    --spirit-white: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-ui: 'Fredoka', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+    --text-dark: #2d3436;
+    --card-bg: rgba(255, 255, 255, 0.96);
+}
+
+body.cyber-mode {
+    background: linear-gradient(135deg, var(--shika-sky) 0%, var(--sunset-gold) 100%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    margin: 0;
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23d63031' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 8 8, auto;
+}
+
+body.cyber-mode a,
+body.cyber-mode button,
+body.cyber-mode #cyber-toggle {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16' viewBox='0 0 32 16'%3E%3Cpath d='M2,6 L2,10 Q2,15 8,15 Q14,15 14,6 Q14,15 20,15 Q26,15 26,10 L26,6' fill='none' stroke='%23d63031' stroke-width='3' stroke-linecap='round'/%3E%3Crect x='4' y='2' width='8' height='6' rx='2' fill='rgba(214,48,49,0.2)' stroke='%23d63031' stroke-width='2'/%3E%3Crect x='16' y='2' width='8' height='6' rx='2' fill='rgba(214,48,49,0.2)' stroke='%23d63031' stroke-width='2'/%3E%3C/svg%3E") 16 8, pointer;
+}
+
+.circle-wipe {
+    position: fixed;
+    inset: 0;
+    z-index: 10007;
+    background: var(--mirai-red);
+    clip-path: circle(0% at 50% 50%);
+    pointer-events: none;
+}
+
+/* --- THE SUNSET ATMOSPHERE --- */
+.atmosphere-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* --- THE HEADER (Anime Opening Style) --- */
+body.cyber-mode header {
+    background: linear-gradient(180deg, rgba(45, 52, 54, 0.6) 0%, rgba(45, 52, 54, 0.2) 70%, transparent 100%);
+    padding: 80px 20px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+}
+
+body.cyber-mode header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 10vw, 5.5rem);
+    font-style: italic;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 4px 4px 0px var(--mirai-red), 0 0 30px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    animation: title-gentle-float 6s ease-in-out infinite;
+}
+
+@keyframes title-gentle-float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-0.5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(0.5deg);
+    }
+}
+
+body.cyber-mode nav {
+    margin-top: 30px;
+    background: var(--card-bg);
+    backdrop-filter: blur(25px);
+    border: 3px solid var(--mirai-red);
+    border-radius: 100px;
+    display: inline-block;
+    padding: 8px 40px;
+    box-shadow: 8px 8px 0px var(--mirai-red);
+}
+
+body.cyber-mode nav ul {
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+body.cyber-mode nav a {
+    font-family: var(--font-ui);
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 5px 12px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.cyber-mode nav a:hover {
+    color: var(--mirai-red);
+    transform: translateY(-5px) scale(1.25);
+    text-shadow: 0 5px 15px rgba(214, 48, 49, 0.1);
+}
+
+/* --- DECO ASSETS (Hand-Crafted SVGs) --- */
+.deco-svg {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.antler-svg {
+    width: 140px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+.content-section:hover .antler-left {
+    transform: rotate(-20deg) scale(1.1);
+}
+
+.content-section:hover .antler-right {
+    transform: rotate(20deg) scale(1.1);
+}
+
+.antler-left {
+    top: -55px;
+    left: 15px;
+    transform: rotate(-10deg);
+}
+
+.antler-right {
+    top: -55px;
+    right: 15px;
+    transform: rotate(10deg);
+}
+
+.lily-svg {
+    bottom: -60px;
+    right: -45px;
+    width: 180px;
+    filter: drop-shadow(0 15px 35px rgba(255, 23, 68, 0.4));
+}
+
+.lily-web-img {
+    position: fixed;
+    bottom: -100px;
+    left: -100px;
+    width: 450px;
+    opacity: 0.12;
+    z-index: -2;
+    pointer-events: none;
+    filter: grayscale(10%) sepia(20%);
+}
+
+/* --- CLOUD CONTENT CARDS --- */
+body.cyber-mode .content-section {
+    background: var(--card-bg);
+    backdrop-filter: blur(50px);
+    border-radius: 60px;
+    padding: 85px 60px 70px;
+    margin: 100px auto !important;
+    max-width: 950px;
+    position: relative;
+    border: 6px solid var(--spirit-white);
+    box-shadow: 0 45px 120px rgba(0, 0, 0, 0.1);
+}
+
+body.cyber-mode #headshot {
+    display: block;
+    margin: 0 auto 30px;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid var(--mirai-red);
+    box-shadow: 0 0 0 10px var(--spirit-white), 0 20px 50px rgba(214, 48, 49, 0.3);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.cyber-mode #headshot:hover {
+    transform: scale(1.08) rotate(3deg);
+}
+
+body.cyber-mode hr {
+    border: none;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--lily-crimson), var(--sunset-gold), transparent);
+    margin: 60px 0;
+    opacity: 0.6;
+}
+
+body.cyber-mode h2 {
+    font-family: var(--font-heading);
+    color: var(--mirai-red);
+    font-size: 3.8rem;
+    font-style: italic;
+    margin-bottom: 35px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+body.cyber-mode h3 {
+    font-family: var(--font-ui);
+    color: var(--lily-crimson);
+    font-weight: 700;
+    font-size: 2rem;
+    border-bottom: 3px solid rgba(255, 23, 68, 0.1);
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+/* --- GENERAL LINK & TEXT THEMING --- */
+body.cyber-mode a {
+    color: var(--mirai-red);
+    transition: opacity 0.3s;
+    font-weight: 600;
+}
+
+body.cyber-mode a:hover {
+    opacity: 0.7;
+}
+
+/* --- DARK BLOCKS READABILITY FIX --- */
+body.cyber-mode blockquote,
+body.cyber-mode pre,
+body.cyber-mode code,
+body.cyber-mode aside,
+body.cyber-mode th,
+body.cyber-mode .cyber-box {
+    color: #ffffff !important;
+    font-weight: 400;
+}
+
+body.cyber-mode td {
+    background-color: #2d3436;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.cyber-mode tr:nth-child(even) td {
+    background-color: #3b4244;
+}
+
+body.cyber-mode mark {
+    background-color: var(--mirai-red);
+    color: #ffffff !important;
+    padding: 0 5px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+/* --- PROJECT CARD THEMING --- */
+body.cyber-mode .projects-flex-container {
+    justify-content: center;
+}
+
+body.cyber-mode .project-card {
+    background: #2d3436;
+    color: #ffffff !important;
+    border: 4px solid var(--mirai-red);
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: 12px 12px 0px var(--mirai-red);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.cyber-mode .project-card:hover {
+    transform: translateY(-15px) rotate(1deg);
+    box-shadow: 20px 20px 0px var(--lily-crimson);
+}
+
+body.cyber-mode .project-card h3 {
+    color: #ffffff !important;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 2.2rem;
+    border-bottom: 3px solid var(--mirai-red);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+body.cyber-mode .project-card p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+body.cyber-mode .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+body.cyber-mode .tech-list li {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+body.cyber-mode .project-btn {
+    background: var(--mirai-red) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 15px !important;
+    padding: 12px 30px !important;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(214, 48, 49, 0.4);
+    width: fit-content;
+}
+
+body.cyber-mode .project-btn:hover {
+    background: var(--lily-crimson) !important;
+    transform: scale(1.1);
+}
+
+/* --- GALLERY THEMING --- */
+body.cyber-mode .gallery-item {
+    border: 5px solid var(--spirit-white) !important;
+    border-radius: 30px !important;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.cyber-mode .gallery-item figcaption {
+    background: var(--mirai-red) !important;
+    color: #ffffff !important;
+    font-family: var(--font-ui);
+    padding: 15px;
+    font-weight: 600;
+    opacity: 1 !important;
+    /* Always visible for anime dramatic effect */
+    transform: none !important;
+}
+
+/* --- INTERACTIVE & LIST THEMING --- */
+body.cyber-mode ul#skills-list li,
+body.cyber-mode ul#todo-list li {
+    background: #2d3436;
+    color: #ffffff !important;
+    border: 2px solid var(--mirai-red);
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+    list-style: none;
+}
+
+/* --- FORM THEMING --- */
+body.cyber-mode form {
+    background: rgba(45, 52, 54, 0.03);
+    border: 3px solid #eee;
+    padding: 40px;
+    border-radius: 30px;
+}
+
+body.cyber-mode label {
+    font-family: var(--font-ui);
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+body.cyber-mode input[type="text"],
+body.cyber-mode input[type="email"],
+body.cyber-mode input[type="tel"],
+body.cyber-mode textarea,
+body.cyber-mode select {
+    background: #ffffff;
+    border: 3px solid #eee;
+    color: var(--text-dark);
+    border-radius: 15px;
+    padding: 15px;
+    font-family: var(--font-body);
+}
+
+body.cyber-mode input:focus,
+body.cyber-mode textarea:focus {
+    border-color: var(--mirai-red);
+    outline: none;
+    box-shadow: 0 0 15px rgba(214, 48, 49, 0.1);
+}
+
+body.cyber-mode .form-button {
+    background-color: var(--mirai-red);
+    color: white;
+    font-family: var(--font-ui);
+    font-size: 1.2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(214, 48, 49, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.22);
+}
+
+body.cyber-mode .form-button:hover {
+    background-color: var(--lily-crimson);
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* --- RESUME & READABILITY --- */
+.resume-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.resume-item {
+    background: #ffffff;
+    border-radius: 40px;
+    padding: 45px;
+    margin-bottom: 50px;
+    border: 3px solid #f0f0f0;
+    border-left: 18px solid var(--mirai-red);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+}
+
+.resume-item:hover {
+    transform: translateX(10px);
+}
+
+.cyber-accent-text {
+    font-family: var(--font-ui);
+    color: var(--mirai-red);
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.resume-item p strong {
+    color: #000;
+    background: rgba(255, 224, 130, 0.3);
+    padding: 2px 5px;
+}
+
+/* --- SPLASH SCREEN --- */
+#cyber-splash {
+    background: #ffffff;
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10005;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#cyber-hero-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 10px solid var(--mirai-red);
+    box-shadow: 0 0 0 20px var(--shika-sky), 0 50px 100px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    object-fit: cover;
+}
+
+#cyber-hero-name {
+    font-family: var(--font-heading);
+    font-size: 6.5rem;
+    font-style: italic;
+    color: var(--mirai-red);
+    margin-top: 45px;
+    opacity: 0;
+    letter-spacing: 10px;
+}
+
+/* --- TOGGLE CONTAINER --- */
+/* --- TOGGLE CONTAINER --- */
+#cyber-toggle-container {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 10008;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center aligns all children */
+    gap: 15px;
+}
+
+#cyber-toggle,
+#cyber-mute-btn {
+    background: var(--mirai-red) !important;
+    color: white !important;
+    border: 4px solid var(--spirit-white) !important;
+    border-radius: 20px;
+    width: 65px;
+    /* Standardized width */
+    height: 65px;
+    /* Standardized height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 30px rgba(214, 48, 49, 0.35);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#cyber-toggle:hover,
+#cyber-mute-btn:hover {
+    transform: scale(1.15) rotate(15deg);
+    box-shadow: 0 20px 40px rgba(214, 48, 49, 0.5);
+}
+
+#cyber-mute-btn {
+    background: var(--lily-crimson) !important;
+    /* Removed specific width/height override to maintain alignment */
+}
+
+/* --- PREMIUM VOLUME SLIDER --- */
+.cyber-volume-container {
+    position: relative;
+    width: 65px;
+    /* Matches buttons */
+    height: 160px;
+    /* Slightly taller for elegance */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    /* Matches button borders */
+    border-radius: 25px;
+    /* Matches buttons */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    /* Remove auto margins to let flexbox handle it */
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#cyber-volume-slider {
+    -webkit-appearance: slider-vertical;
+    appearance: slider-vertical;
+    writing-mode: bt-lr;
+    width: 6px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0;
+}
+
+/* Custom Track Fill Glow */
+.volume-track-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(0deg, var(--mirai-red), var(--lily-crimson));
+    opacity: 0.4;
+    transition: height 0.2s ease-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#cyber-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    background: #ffffff;
+    border: 4px solid var(--mirai-red);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--mirai-red);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#cyber-volume-slider:active::-webkit-slider-thumb {
+    transform: scale(1.3);
+}
+
+#cyber-volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 4px solid var(--mirai-red);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--mirai-red);
+}
+
+body.cyber-mode footer {
+    background: #ffffff;
+    padding: 120px 20px;
+    text-align: center;
+    border-top: 15px solid var(--mirai-red);
+    color: #1a1a1a;
+    /* Deeper dark for high contrast */
+}
+
+body.cyber-mode footer a {
+    color: #b71c1c !important;
+    /* Deeper crimson for contrast on white */
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+body.cyber-mode footer a:hover {
+    color: var(--mirai-red) !important;
+}
+
+body.cyber-mode footer p {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    body.cyber-mode .content-section {
+        padding: 40px 30px;
+        border-radius: 40px;
+    }
+
+    body.cyber-mode h2 {
+        font-size: 2.8rem;
+    }
+}
+
+@keyframes orb-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: blur(4px);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.4);
+        filter: blur(8px);
+        opacity: 0.9;
+    }
+}
+
+.spirit-orb {
+    animation: orb-pulse 4s ease-in-out infinite;
+    pointer-events: none;
+    box-shadow: 0 0 15px rgba(214, 48, 49, 0.5), 0 0 30px rgba(255, 255, 255, 0.2);
+}

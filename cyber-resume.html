@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Resume - Arshdeep Sahota</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="cyber.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="cyber.js" defer></script>
+</head>
+
+<body>
+  <div class="transition-overlay"></div>
+  <div id="cyber-toggle-container">
+    <button id="cyber-toggle" title="Protocol Switch">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+        <line x1="12" y1="2" x2="12" y2="12"></line>
+      </svg>
+    </button>
+  </div>
+
+  <header>
+    <h1>Arshdeep Singh Sahota</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="flexbox-projects.html">Projects</a></li>
+        <li><a href="grid-gallery.html">Gallery</a></li>
+        <li><a href="bootstrap-resume.html">Resume</a></li>
+        <li><a href="interactive.html">Interactive</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="cyber-content-scroll">
+    <main class="resume-wrapper">
+
+      <!-- Summary Section -->
+      <section class="content-section resume-card">
+        <h2>Computer Engineering Student</h2>
+        <p>
+          Motivated <strong>Computer Engineering Technology</strong> student (Dean's List) with strong
+          troubleshooting skills in both Windows and Linux environments.
+          Experienced in <strong>Database Management (MySQL)</strong>, <strong>System Administration</strong>, and
+          hardware diagnostics.
+          Known for research-driven problem solving, such as recovering lost data partitions and managing private game
+          servers.
+        </p>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="content-section resume-card">
+        <h3>Professional Experience</h3>
+        <div class="resume-item">
+          <h4 class="cyber-accent-text">Freelance Technical Support</h4>
+          <p><strong>Self-Employed</strong> | Ottawa, ON</p>
+          <ul>
+            <li><strong>Partition Recovery:</strong> Successfully resolved a complex partition error deemed
+              unrecoverable by others, executing a volume merge to create one large partition with no data loss.</li>
+            <li><strong>Diagnostics:</strong> Diagnose and resolve critical OS errors, boot loops, and driver conflicts
+              for peers and professors. Perform comprehensive hardware diagnostics including RAM testing, disk health
+              analysis, thermal monitoring, and hardware failure detection.</li>
+          </ul>
+        </div>
+
+        <div class="resume-item">
+          <h4 class="cyber-accent-text">Automotive Service Tech Co-op</h4>
+          <p><strong>Thousand Islands Toyota</strong> | Brockville, ON</p>
+          <ul>
+            <li>Developed a "safety-first" methodology working with low-voltage electrical systems and sensors.</li>
+            <li>Leveraged diagnostic software to isolate error codes, a skill directly transferable to IT asset
+              management.</li>
+          </ul>
+        </div>
+
+        <div class="resume-item">
+          <h4 class="cyber-accent-text">Customer Service & Operations</h4>
+          <p><strong>BarBurrito</strong> | Brockville, ON</p>
+          <ul>
+            <li>Mitigated downtime by rapidly troubleshooting Point of Sale (POS) terminals and digital signage during
+              peak hours.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="content-section resume-card">
+        <h3>Technical Skills</h3>
+        <div class="resume-item">
+          <p><strong>Linux (Arch/Ubuntu):</strong> 90% proficiency</p>
+          <p><strong>Windows Administration:</strong> 95% proficiency</p>
+          <p><strong>MySQL & Databases:</strong> 80% proficiency</p>
+          <p><strong>Java Development:</strong> 70% proficiency</p>
+          <p><strong>C Programming:</strong> 60% proficiency</p>
+          <p><strong>PHP:</strong> 60% proficiency</p>
+          <p><strong>Web (HTML/CSS/BS):</strong> 85% proficiency</p>
+        </div>
+      </section>
+
+      <!-- Key Projects Section -->
+      <section class="content-section resume-card">
+        <h3>Key Projects</h3>
+        <div class="resume-item">
+          <h4 class="cyber-accent-text">Windows Game Server Admin (BeamMP)</h4>
+          <p>Host and maintain a dedicated server. Implemented Playit.gg tunneling to bypass NAT restrictions and ensure
+            secure remote access.</p>
+        </div>
+        <div class="resume-item">
+          <h4 class="cyber-accent-text">Network Simulation Labs</h4>
+          <p>Configured VLANs, Subnetting, and NAT in Cisco Packet Tracer. Analyzed traffic using Wireshark.</p>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="content-section resume-card">
+        <h3>Education</h3>
+        <div class="resume-item">
+          <h4 class="cyber-accent-text">Algonquin College (2024-Present)</h4>
+          <p>Computer Engineering Technology: Computing Science</p>
+          <p><strong>Standing:</strong> Dean's List (Winter 2025)</p>
+          <p><strong>Coursework:</strong> Operating Systems, Network Fundamentals, Database Systems, Java OOP, C,
+            Scripting.</p>
+        </div>
+        <div class="resume-item">
+          <h4 class="cyber-accent-text">Thousand Islands Secondary</h4>
+          <p>SHSM (Engineering) | OSSD with Red Seal</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Email: <a href="mailto:eagle.sahota@gmail.com">eagle.sahota@gmail.com</a></p>
+    <p>Phone: 343 507-4322</p>
+    <p>City: Ottawa, Ontario, Canada</p>
+    <p>Instagram: <a href="https://www.instagram.com/omoide_no_iso_kara/" target="_blank">@omoide_no_iso_kara</a></p>
+    <p>&copy; 2025 Arshdeep Singh Sahota. All Rights Reserved.</p>
+    <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.7;">
+      <p>Music: 'Snowfall' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

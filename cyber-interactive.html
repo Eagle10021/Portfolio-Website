@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Page - Arshdeep Sahota</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="cyber.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="cyber.js" defer></script>
+</head>
+
+<body>
+    <div class="transition-overlay"></div>
+    <div id="cyber-toggle-container">
+        <button id="cyber-toggle" title="Protocol Switch">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                <line x1="12" y1="2" x2="12" y2="12"></line>
+            </svg>
+        </button>
+    </div>
+
+    <header>
+        <h1>Arshdeep Singh Sahota</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flexbox-projects.html">Projects</a></li>
+                <li><a href="grid-gallery.html">Gallery</a></li>
+                <li><a href="bootstrap-resume.html">Resume</a></li>
+                <li><a href="interactive.html">Interactive</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="cyber-content-scroll">
+        <main>
+            <section class="content-section">
+                <h2>Welcome Message</h2>
+                <div id="welcome-message"></div>
+                <button id="greet-btn" class="form-button">Click to Greet Me</button>
+            </section>
+
+            <section class="content-section">
+                <h2>Current Date & Time</h2>
+                <div id="current-greeting"></div>
+                <br>
+                <div id="current-time"></div>
+            </section>
+
+            <section class="content-section">
+                <h2>Color Changer</h2>
+                <div id="color-changer"
+                    style="width:100px; height:100px; background-color:lightgray; margin: 20px auto; border-radius: 20px; border: 4px solid var(--mirai-red);">
+                </div>
+                <button id="color-btn" class="form-button">Change Color</button>
+            </section>
+
+            <section class="content-section">
+                <h2>Click Counter</h2>
+                <button id="click-counter-btn" class="form-button">Click Me!</button>
+                <p id="click-count">Clicks: 0</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Theme Toggle</h2>
+                <button id="theme-toggle" class="form-button">Toggle Page Theme</button>
+            </section>
+
+            <section class="content-section">
+                <h2>Age Checker</h2>
+                <input type="number" id="age-input" placeholder="Enter your age">
+                <button id="check-age-btn" class="form-button">Check Age Category</button>
+                <p id="age-result"></p>
+            </section>
+
+            <section class="content-section" id="grade-calc">
+                <h2>Grade Calculator</h2>
+                <input type="number" id="grade-input" placeholder="Enter grade (0-100)">
+                <button id="check-grade-btn" class="form-button">Check Letter Grade</button>
+                <p id="grade-result"></p>
+            </section>
+
+            <section class="content-section">
+                <h2>Even or Odd?</h2>
+                <input type="number" id="even-odd-input" placeholder="Enter a number">
+                <button id="check-even-odd-btn" class="form-button">Check</button>
+                <p id="even-odd-result"></p>
+            </section>
+
+            <section class="content-section">
+                <h2>Password Strength</h2>
+                <input type="password" id="pw-input" placeholder="Enter a password">
+                <button id="pw-strength-btn" class="form-button">Check Password Strength</button>
+                <p id="pw-strength-result"></p>
+            </section>
+
+            <section class="content-section">
+                <h2>Skills</h2>
+                <input type="text" id="new-skill" placeholder="Enter a new skill">
+                <button id="add-skill-btn" class="form-button">Add Skill</button>
+                <p id="skills-count">Total Skills: 0</p>
+                <ul id="skills-list"></ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Todo List</h2>
+                <input type="text" id="todo-input" placeholder="New task">
+                <button id="add-todo-btn" class="form-button">Add Todo</button>
+                <ul id="todo-list"></ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Email: <a href="mailto:eagle.sahota@gmail.com">eagle.sahota@gmail.com</a></p>
+        <p>Phone: 343 507-4322</p>
+        <p>City: Ottawa, Ontario, Canada</p>
+        <p>Instagram: <a href="https://www.instagram.com/omoide_no_iso_kara/" target="_blank">@omoide_no_iso_kara</a>
+        </p>
+        <p>&copy; 2025 Arshdeep Singh Sahota. All Rights Reserved.</p>
+        <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.7;">
+            <p>Music: 'Snowfall' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
