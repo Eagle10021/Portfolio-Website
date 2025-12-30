@@ -6,9 +6,9 @@ A dual-experience personal portfolio that bridges the gap between professional p
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
-### 🌗 Dual Theme System
+###  Dual Theme System
 The website features a seamless toggle between two completely unique worlds:
 *   **Standard Mode**: A clean, high-contrast, professional interface using modern CSS Flexbox and Grid layouts. Optimized for readability and accessibility.
 *   **Sunset Mirai Mode (Cyber Theme)**: An immersive, anime-inspired alternative experience featuring:
@@ -16,7 +16,7 @@ The website features a seamless toggle between two completely unique worlds:
     *   **Premium Glassmorphism**: Frosted glass UI elements for controls and navigation.
     *   **GSAP Animations**: Smooth scroll-triggered reveals and entry animations.
 
-### 🎧 Advanced Audio Engine
+###  Advanced Audio Engine
 A fully custom Javascript audio engine designed for a continuous, non-intrusive auditory experience:
 *   **Context-Aware Playback**:
     *   *Standard Mode*: Plays **"Origami"** by Scott Buckley (Professional & Crisp).
@@ -25,14 +25,14 @@ A fully custom Javascript audio engine designed for a continuous, non-intrusive 
 *   **State Persistence**: The system remembers your **Volume**, **Playback Position**, and **Mute Status** across all page navigations.
 *   **Custom UI**: A vertically oriented glass-morphism volume slider with dynamic glow effects and a "Spirit Thumb".
 
-### 💻 Tech Stack
+###  Tech Stack
 *   **Core**: HTML5, CSS3, JavaScript (ES6+)
 *   **Animation**: [GSAP](https://greensock.com/gsap/) (GreenSock Animation Platform) & ScrollTrigger
 *   **Design**: CSS Variables for theming, Flexbox/Grid for layout, SVG for iconography.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 *   `*.html`: Standard professional pages.
 *   `cyber-*.html`: Counterpart pages for the Sunset Mirai theme.
@@ -43,7 +43,7 @@ A fully custom Javascript audio engine designed for a continuous, non-intrusive 
 
 ---
 
-## 📜 Credits & Attribution
+## Credits & Attribution
 
 This project is built with respect for creators. Full attribution for all audio tracks and visual assets can be found in **[CREDITS.md](CREDITS.md)**.
 
@@ -52,7 +52,7 @@ This project is built with respect for creators. Full attribution for all audio 
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 To run this project locally:
 
@@ -69,7 +69,7 @@ To run this project locally:
 
 ---
 
-## 📫 Contact
+##  Contact
 
 *   **Email**: eagle.sahota@gmail.com
 *   **LinkedIn**: [Arshdeep Sahota](https://www.linkedin.com/in/arshdeep-sahota-864135242/)
