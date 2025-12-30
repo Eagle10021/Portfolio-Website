@@ -1,56 +1,77 @@
 # Portfolio Website: Arshdeep Singh Sahota
 
-This repository contains the source code for my personal portfolio website, a project completed as part of my studies at **Algonquin College** for the **Computer Engineering Technology: Computing Science** program.
+A dual-experience personal portfolio that bridges the gap between professional presentation and immersive artistic expression. This project showcases my academic journey, technical skills, and creative interests through two distinct, fully-realized visual themes.
 
-The site is designed to be a **simple, responsive, and aesthetically pleasing single-page application** that showcases my academic journey, work experience, hobbies, and technical skills.
-
----
-
-## Features
-
-- **Clean, Responsive Design:** Utilizes a dark theme with high contrast using modern CSS techniques for readability and visual appeal.  
-- **Semantic HTML5:** Structured with appropriate tags (`<header>`, `<section>`, `<footer>`, `<aside>`, etc.) for accessibility and SEO.  
-- **CSS Layout Mastery:** Demonstrates foundational knowledge of CSS layout, including:  
-  - Flexbox (for the navigation and footer)  
-  - CSS Grid (for the contact form)  
-  - Responsive Box Model properties (`max-width`, `margin: auto`)  
-- **Media Integration:** Includes responsive embeds for Spotify tracks and a YouTube video to showcase interests.  
-- **Advanced Table Styling:** Custom-styled table demonstrating the use of `border-radius`, `border-collapse: separate`, and `nth-child` selectors for professional presentation.  
+**[View Live Demo](https://eagle10021.github.io/Portfolio-Website/)**
 
 ---
 
-## Technologies Used
+## 🌟 Key Features
 
-- **HTML5** (Structure)  
-- **CSS3** (Styling and Layout)  
-- **JavaScript** (Scripting)
+### 🌗 Dual Theme System
+The website features a seamless toggle between two completely unique worlds:
+*   **Standard Mode**: A clean, high-contrast, professional interface using modern CSS Flexbox and Grid layouts. Optimized for readability and accessibility.
+*   **Sunset Mirai Mode (Cyber Theme)**: An immersive, anime-inspired alternative experience featuring:
+    *   **Dynamic Atmospherics**: Floating spirit/petal particles and subtle lighting effects.
+    *   **Premium Glassmorphism**: Frosted glass UI elements for controls and navigation.
+    *   **GSAP Animations**: Smooth scroll-triggered reveals and entry animations.
+
+### 🎧 Advanced Audio Engine
+A fully custom Javascript audio engine designed for a continuous, non-intrusive auditory experience:
+*   **Context-Aware Playback**:
+    *   *Standard Mode*: Plays **"Origami"** by Scott Buckley (Professional & Crisp).
+    *   *Sunset Mode*: Plays **"Snowfall"** by Scott Buckley (Calm & Ambient).
+*   **Smart Transitions**: Audio seamlessly cross-fades when switching themes or reloading pages (Fades in on load, fades out/in on loops).
+*   **State Persistence**: The system remembers your **Volume**, **Playback Position**, and **Mute Status** across all page navigations.
+*   **Custom UI**: A vertically oriented glass-morphism volume slider with dynamic glow effects and a "Spirit Thumb".
+
+### 💻 Tech Stack
+*   **Core**: HTML5, CSS3, JavaScript (ES6+)
+*   **Animation**: [GSAP](https://greensock.com/gsap/) (GreenSock Animation Platform) & ScrollTrigger
+*   **Design**: CSS Variables for theming, Flexbox/Grid for layout, SVG for iconography.
 
 ---
 
-## Getting Started (Local Setup)
+## 📂 Project Structure
 
-To view and test this project locally, follow these steps:
+*   `*.html`: Standard professional pages.
+*   `cyber-*.html`: Counterpart pages for the Sunset Mirai theme.
+*   `styles.css`: Core styles for the standard theme.
+*   `cyber.css`: Overrides and unique styles for the Cyber theme.
+*   `cyber.js`: Logic for the audio engine, particle effects, and state management.
+*   `audio/`: High-quality audio assets (Optimized MP3s).
 
-1. **Clone the Repository:**
-   
-``` git clone https://github.com/Eagle10021/Portfolio-Website.git```
+---
 
-Navigate to the Directory:
+## 📜 Credits & Attribution
 
-```cd Portfolio-Website```
+This project is built with respect for creators. Full attribution for all audio tracks and visual assets can be found in **[CREDITS.md](CREDITS.md)**.
 
-Open in Browser:
-Simply double-click the index.html file to open the portfolio website in your default web browser.
+*   **Audio**: Music by [Scott Buckley](https://www.scottbuckley.com.au) (CC-BY 4.0).
+*   **Photography**: All gallery images captured by Arshdeep Singh Sahota.
 
-Live Demo
-You can view a live version of this project here:
-https://eagle10021.github.io/Portfolio-Website/
+---
 
-Contact
-If you have any questions or collaboration inquiries, please feel free to reach out:
+## 🚀 Getting Started
 
-Email: eagle.sahota@gmail.com
+To run this project locally:
 
-LinkedIn: https://www.linkedin.com/in/arshdeep-sahota-864135242/
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/Eagle10021/Portfolio-Website.git
+    ```
+2.  **Navigate to Directory**:
+    ```bash
+    cd Portfolio-Website
+    ```
+3.  **Launch**:
+    Simply open `index.html` in any modern web browser. No build step or local server is strictly required, though a live server is recommended for the best audio behavior.
 
-© 2025 Arshdeep Singh Sahota. All Rights Reserved.
+---
+
+## 📫 Contact
+
+*   **Email**: eagle.sahota@gmail.com
+*   **LinkedIn**: [Arshdeep Sahota](https://www.linkedin.com/in/arshdeep-sahota-864135242/)
+
+&copy; 2025 Arshdeep Singh Sahota. All Rights Reserved.
