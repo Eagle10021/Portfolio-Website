@@ -70,8 +70,6 @@ To run this project locally:
 ---
 
 ##  Contact
-
-*   **Email**: eagle.sahota@gmail.com
 *   **LinkedIn**: [Arshdeep Sahota](https://www.linkedin.com/in/arshdeep-sahota-864135242/)
 
-&copy; 2025 Arshdeep Singh Sahota. All Rights Reserved.
+&copy; 2026 Arshdeep Singh Sahota. All Rights Reserved.
