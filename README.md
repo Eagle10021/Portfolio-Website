@@ -52,22 +52,6 @@ This project is built with respect for creators. Full attribution for all audio 
 
 ---
 
-##  Getting Started
-
-To run this project locally:
-
-1.  **Clone the Repository**:
-    ```bash
-    git clone https://github.com/Eagle10021/Portfolio-Website.git
-    ```
-2.  **Navigate to Directory**:
-    ```bash
-    cd Portfolio-Website
-    ```
-3.  **Launch**:
-    Simply open `index.html` in any modern web browser. No build step or local server is strictly required, though a live server is recommended for the best audio behavior.
-
----
 
 ##  Contact
 *   **LinkedIn**: [Arshdeep Sahota](https://www.linkedin.com/in/arshdeep-sahota-864135242/)
