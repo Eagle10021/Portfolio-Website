@@ -1,59 +1,57 @@
 # Portfolio Website: Arshdeep Singh Sahota
 
-A dual-experience personal portfolio that bridges the gap between professional presentation and immersive artistic expression. This project showcases my academic journey, technical skills, and creative interests through two distinct, fully-realized visual themes.
+My personal portfolio: IT support experience, the home server and voice assistant I run, open-source projects, education and photography, all on one page.
 
-**[View Live Demo](https://eagle10021.github.io/Portfolio-Website/)**
-
----
-
-##  Key Features
-
-###  Dual Theme System
-The website features a seamless toggle between two completely unique worlds:
-*   **Standard Mode**: A clean, high-contrast, professional interface using modern CSS Flexbox and Grid layouts. Optimized for readability and accessibility.
-*   **Sunset Mirai Mode (Cyber Theme)**: An immersive, anime-inspired alternative experience featuring:
-    *   **Dynamic Atmospherics**: Floating spirit/petal particles and subtle lighting effects.
-    *   **Premium Glassmorphism**: Frosted glass UI elements for controls and navigation.
-    *   **GSAP Animations**: Smooth scroll-triggered reveals and entry animations.
-
-###  Advanced Audio Engine
-A fully custom Javascript audio engine designed for a continuous, non-intrusive auditory experience:
-*   **Context-Aware Playback**:
-    *   *Standard Mode*: Plays **"Origami"** by Scott Buckley (Professional & Crisp).
-    *   *Sunset Mode*: Plays **"Snowfall"** by Scott Buckley (Calm & Ambient).
-*   **Smart Transitions**: Audio seamlessly cross-fades when switching themes or reloading pages (Fades in on load, fades out/in on loops).
-*   **State Persistence**: The system remembers your **Volume**, **Playback Position**, and **Mute Status** across all page navigations.
-*   **Custom UI**: A vertically oriented glass-morphism volume slider with dynamic glow effects and a "Spirit Thumb".
-
-###  Tech Stack
-*   **Core**: HTML5, CSS3, JavaScript (ES6+)
-*   **Animation**: [GSAP](https://greensock.com/gsap/) (GreenSock Animation Platform) & ScrollTrigger
-*   **Design**: CSS Variables for theming, Flexbox/Grid for layout, SVG for iconography.
+**[View the site](https://manifest.01blue.org)**
 
 ---
 
-##  Project Structure
+## Features
 
-*   `*.html`: Standard professional pages.
-*   `cyber-*.html`: Counterpart pages for the Sunset Mirai theme.
-*   `styles.css`: Core styles for the standard theme.
-*   `cyber.css`: Overrides and unique styles for the Cyber theme.
-*   `cyber.js`: Logic for the audio engine, particle effects, and state management.
-*   `audio/`: High-quality audio assets (Optimized MP3s).
+* **One page, seven sections:** About, Experience, Projects, Skills, Education, Photography and Contact, with a sticky nav that highlights where you are.
+* **Two themes**, switched with the button at the top right and remembered between visits:
+  * **Standard:** light, clean and easy to read.
+  * **Sunset Mirai:** dark dusk gradient, glass panels, the red spider lily and drifting sparks.
+* **Animations with [anime.js](https://animejs.com) v4:** split-letter hero title, scroll reveals, count-up numbers, the Sunset Mirai sparks and the music fades. Everything respects *reduce motion* and the page works without JavaScript.
+* **Music, off by default:** the ♪ button plays "Origami" (Standard) or "Snowfall" (Sunset Mirai) by Scott Buckley, and cross-fades when you switch themes.
+* **Photo gallery** with a lightbox. Photos are served as WebP thumbnails plus full-size WebP; the originals stay in `images/`.
+* **Resume PDF** built from `resume/resume.html`.
+* **Coursework:** the original Algonquin lab pages (Flexbox, Grid, Bootstrap, JavaScript) are kept in `legacy/` and linked from the Projects section.
 
----
+## Project Structure
 
-## Credits & Attribution
+| Path | What it is |
+| :--- | :--- |
+| `index.html` | The whole site |
+| `assets/css/site.css` | Styles; both themes are CSS variables under `[data-theme="standard"]` and `[data-theme="mirai"]` |
+| `assets/js/site.js` | Animations, theme toggle, music, menu, lightbox (ES module, loads anime.js from jsDelivr) |
+| `assets/favicon.svg` | Site icon |
+| `assets/Arshdeep-Sahota-Resume.pdf` | The resume linked from the site (generated, see below) |
+| `resume/resume.html` | Source of the resume PDF |
+| `images/web/` | Web-sized WebP images used by the site |
+| `images/` | Original photos |
+| `audio/` | Theme music |
+| `legacy/` | The original course-lab version of the site |
 
-This project is built with respect for creators. Full attribution for all audio tracks and visual assets can be found in **[CREDITS.md](CREDITS.md)**.
+## Editing
 
-*   **Audio**: Music by [Scott Buckley](https://www.scottbuckley.com.au) (CC-BY 4.0).
-*   **Photography**: All gallery images captured by Arshdeep Singh Sahota.
+* **Text and projects:** all in `index.html`; each section is marked with a comment.
+* **Colours and fonts:** the variables at the top of `assets/css/site.css`.
+* **Music tracks:** `TRACKS` near the middle of `assets/js/site.js`.
+* **Resume:** edit `resume/resume.html`, then rebuild the PDF with any Chromium browser:
+  ```bash
+  microsoft-edge-stable --headless=new --no-pdf-header-footer --virtual-time-budget=5000 \
+    --print-to-pdf=assets/Arshdeep-Sahota-Resume.pdf "file://$PWD/resume/resume.html"
+  ```
+  (`chromium` or `google-chrome` take the same flags.) Keep it to one page.
 
----
+## Credits
 
+Music by [Scott Buckley](https://www.scottbuckley.com.au) (CC BY 4.0). Animations by [anime.js](https://animejs.com) (MIT). Photos are my own. Full details in **[CREDITS.md](CREDITS.md)**.
 
-##  Contact
-*   **LinkedIn**: [Arshdeep Sahota](https://www.linkedin.com/in/arshdeep-sahota-864135242/)
+## Contact
+
+* **Email:** [eagle.sahota@gmail.com](mailto:eagle.sahota@gmail.com)
+* **GitHub:** [Eagle10021](https://github.com/Eagle10021)
 
 &copy; 2026 Arshdeep Singh Sahota. All Rights Reserved.

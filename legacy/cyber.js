@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- AUDIO SYSTEM (Aura & Lo-Fi) ---
     let ambientAudio = null;
     const TRACKS = {
-        standard: 'audio/Origami.mp3',
-        sunset: 'audio/Snowfall.mp3'
+        standard: '../audio/Origami.mp3',
+        sunset: '../audio/Snowfall.mp3'
     };
 
     function initAmbientAudio() {
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const splashHTML = `
             <div id="standard-splash">
                 <div class="hud-iris">
-                    <img src="images/red_spider_lily.jpg" alt="Hero">
+                    <img src="../images/red_spider_lily.jpg" alt="Hero">
                     <div class="hud-scanner"></div>
                 </div>
                 <h1 id="standard-hero-name">ARSHDEEP</h1>

@@ -1,229 +1,335 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" data-theme="standard">
 <head>
-    <meta charset="UTF-8">
-    <title>Arshdeep Sahota - Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&family=Bebas+Neue&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="cyber.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="cyber.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arshdeep Sahota | IT Support, Linux & Self-Hosting</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Arshdeep Singh Sahota: Computer Engineering Technology student at Algonquin College, IT support co-op, Linux and home-lab builder.">
+  <meta property="og:title" content="Arshdeep Sahota | Portfolio">
+  <meta property="og:description" content="Computer Engineering Technology student, IT support, Linux and self-hosting projects.">
+  <meta property="og:image" content="images/web/headshot-square.webp">
+  <meta name="theme-color" content="#c2183a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Fredoka:wght@500;600&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>
+    // Apply the saved theme before first paint (no flash of the wrong theme)
+    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 </head>
-
 <body>
-    <div class="cyber-overlay"></div>
-    <div class="hud-corner top-left"></div>
-    <div class="hud-corner top-right"></div>
-    <div class="hud-corner bottom-left"></div>
-    <div class="hud-corner bottom-right"></div>
-    <div class="cyber-status-bar">
-        <div class="cyber-status-inner"></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="sky" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <a class="brand" href="#top" aria-label="Back to top"><span class="brand-mark">AS</span><span class="brand-name">Arshdeep Sahota</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#photography">Photography</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="tool" id="music-toggle" type="button" aria-pressed="false" title="Music: off">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <span class="sr-only">Toggle music</span>
+      </button>
+      <button class="tool theme-toggle" id="theme-toggle" type="button" title="Switch theme">
+        <span class="theme-label" data-for="standard">Sunset Mirai</span>
+        <span class="theme-label" data-for="mirai">Standard</span>
+      </button>
+      <button class="tool menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span class="sr-only">Menu</span>
+      </button>
     </div>
-    <div class="transition-overlay"></div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Sections">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a>
+    <a href="#skills">Skills</a><a href="#education">Education</a><a href="#photography">Photography</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <div id="cyber-splash">
-        <div class="splash-bg"></div>
-        <div class="iris-flash"></div>
-        <img id="cyber-hero-img" src="images/red_spider_lily.jpg" alt="Hero">
-        <h1 id="cyber-hero-name">ARSHDEEP</h1>
-        <div class="cyber-lines"></div>
-    </div>
-
-    <div id="cyber-toggle-container">
-        <button id="cyber-toggle" title="Protocol Switch">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
-                <line x1="12" y1="2" x2="12" y2="12"></line>
-            </svg>
-        </button>
-    </div>
-
-    <header>
-        <h1>Arshdeep Singh Sahota</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#school">School Life</a></li>
-                <li><a href="#work">Work Experience</a></li>
-                <li><a href="#hobbies">Hobbies & Interests</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="flexbox-projects.html">Projects</a></li>
-                <li><a href="grid-gallery.html">Gallery</a></li>
-                <li><a href="bootstrap-resume.html">Resume</a></li>
-                <li><a href="interactive.html">Interactive</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about" class="content-section">
-        <h2>About Me</h2>
-        <img id="headshot" src="images/headshot.jpg" alt="Photo of Arshdeep Singh Sahota">
-        <p>Hello! My name is Arshdeep Singh Sahota. I was born in <em>New Delhi, India</em> in 2006 and moved to
-            <strong>Canada</strong> in 2013. In 2018, I proudly became a Canadian citizen.
-        </p>
-        <p>I've had some unique experiences, including being featured twice in the <mark>Brockville Recorder and
-                Times</mark> newspaper — once for a summer camp and once for a culture sharing event. I also earned a
-            worldwide <strong>first place podium finish</strong> in one of the historical events in <em>Dirt Rally
-                2</em>, one of my favorite rally games, competing against players from across the globe.</p>
-        <blockquote>
-            "The scientific man does not aim at an immediate result. He does not expect that his advanced ideas will be
-            readily taken up. His work is like that of the planter — for the future. His duty is to lay the foundation
-            for those who are to come, and point the way."
-            - Nikola Tesla
-        </blockquote>
-    </section>
-    <hr>
-
-    <section id="school" class="content-section">
-        <h2>School Life</h2>
-        <article>
-            <h3>My School Background</h3>
-            <p>
-                I completed my elementary education at <strong>Westminster Public School</strong> in Brockville,
-                Ontario, Canada,
-                followed by high school at <strong>TISS (Thousand Islands Secondary School)</strong>, also in
-                Brockville, Ontario, where I
-                completed a <abbr title="Specialist High Skills Major">SHSM</abbr> in Engineering.
-                Currently, I am enrolled in the <abbr
-                    title="Computer Engineering Technology - Computing Science">CET-CS</abbr> program at Algonquin
-                College.
-            </p>
-
-            <p>Some of my favorite subjects so far have been Geography, World Issues, and Photography.</p>
-        </article>
-        <table>
-            <caption>My Academic Journey</caption>
-            <tr>
-                <th>Level</th>
-                <th>School</th>
-                <th>Program/Focus</th>
-            </tr>
-            <tr>
-                <td>Elementary</td>
-                <td>Westminster Public School</td>
-                <td>General Education</td>
-            </tr>
-            <tr>
-                <td>High School</td>
-                <td>Thousand Islands Secondary School</td>
-                <td>SHSM in Engineering</td>
-            </tr>
-            <tr>
-                <td>College</td>
-                <td>Algonquin College</td>
-                <td>CET-CS Program</td>
-            </tr>
-        </table>
-    </section>
-    <hr>
-
-    <section id="work" class="content-section">
-        <h2>Work Experience</h2>
-        <ol>
-            <li><strong>Automotive Service Tech (Co-op)</strong> - Thousand Islands Toyota, Brockville</li>
-            <li><strong>Front Staff & Kitchen Staff</strong> - BarBurrito, Brockville</li>
-            <li><strong>Volunteer Photographer</strong> - Downtown Brockville Christmas Event (Santa Photos)</li>
-        </ol>
-        <aside>
-            <p>These opportunities allowed me to develop strong technical, customer service, and communication skills. I
-                am also working towards building professional experience in technology fields while continuing my
-                education.</p>
-        </aside>
-    </section>
-    <hr>
-
-    <section id="hobbies" class="content-section">
-        <h2>Hobbies & Interests</h2>
-        <ol id="hobby-list">
-            <li><strong>Tinkering with Technology</strong> - I love experimenting with electronics and repairing old
-                devices.</li>
-            <li><strong>Video Games</strong> - Playing competitive and simulation games, especially rally racing titles
-                like Dirt Rally 2.</li>
-            <li><strong>Biking</strong> - I enjoy biking as both a hobby and a way to stay active.</li>
-            <li><strong>Automotive Enthusiasm</strong> - I have a keen interest in repairing and maintaining cars, both
-                older models and modern vehicles. The 1989 Toyota Century is my dream car, and I enjoy learning about
-                the design, mechanics, and engineering of all types of automobiles.</li>
-        </ol>
-
-
-        <p class="center-text" id="favorite-songs">Here are my favorite songs:</p>
-
-        <div class="spotify-track">
-            <p class="track-info"><em>Reveries in the Crimson Beyond</em> — Wuthering Waves</p>
-            <iframe src="https://open.spotify.com/embed/track/6EJTiGseaX8yPiF4WycMnG?utm_source=generator" width="550"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Computer Engineering Technology · Algonquin College</p>
+        <h1 class="hero-name"><span class="line">Arshdeep</span> <span class="line">Sahota</span></h1>
+        <p class="hero-role">IT support, Linux and self-hosting. I build and run my own home lab, from the server and network to the apps on top.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="assets/Arshdeep-Sahota-Resume.pdf" download>Download resume</a>
+          <a class="btn ghost" href="https://github.com/Eagle10021" rel="noopener" target="_blank">GitHub</a>
         </div>
-
-        <div class="spotify-track">
-            <p class="track-info"><em>Reveries in the Crimson Beyond - Instrumental</em> — Wuthering Waves</p>
-            <iframe src="https://open.spotify.com/embed/track/6WWoDwqxDHpJholNVWqDlj?utm_source=generator" width="550"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-        </div>
-
-
-        <p class="center-text" id="photography-video">And here's a video related to my photography hobby:</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/KX_TEG2mwbk" title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-
-    </section>
-    <hr>
-
-    <section id="contact" class="content-section">
-        <h2>Contact Me - Out of Service</h2>
-        <form action="#" method="post">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone">
-
-            <label for="method">Preferred Contact Method:</label>
-            <select id="method" name="method" required>
-                <option value="" disabled selected>Select a method</option>
-                <option value="email">Email</option>
-                <option value="phone">Phone</option>
-            </select>
-
-            <label for="reason">Reason for Contact:</label>
-            <select id="reason" name="reason" required>
-                <option value="" disabled selected>Select a reason</option>
-                <option value="general">General Inquiry</option>
-                <option value="job">Job Opportunity</option>
-                <option value="collaboration">Collaboration</option>
-            </select>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" cols="40" required></textarea>
-
-            <button type="submit" class="form-button">Send Message</button>
-        </form>
+        <ul class="hero-facts" aria-label="Highlights">
+          <li><strong>Dean's List</strong><span>Winter 2025</span></li>
+          <li><strong data-count="30">30</strong><span>self-hosted services</span></li>
+          <li><strong>IT co-op</strong><span>Prysmian Group</span></li>
+        </ul>
+      </div>
+      <figure class="hero-photo">
+        <img class="photo-standard" src="images/web/headshot-square.webp" alt="Portrait of Arshdeep Sahota" width="600" height="600">
+        <img class="photo-mirai" src="images/web/red_spider_lily.webp" alt="" width="1200" height="675">
+      </figure>
     </section>
 
-
-    <footer>
-        <p>Instagram: <a href="https://www.instagram.com/omoide_no_iso_kara/" target="_blank">@omoide_no_iso_kara</a>
-        </p>
-        <p>© 2026 Arshdeep Singh Sahota. All Rights Reserved.</p>
-        <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.7;">
-            <p>Music: 'Origami' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au</p>
+    <!-- About -->
+    <section class="section" id="about">
+      <h2 class="section-title"><span class="num">01</span> About</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm a Computer Engineering Technology (Computing Science) student at Algonquin College in Ottawa, on the Dean's List, graduating in 2027. I like knowing how things work all the way down, and fixing them when they don't.</p>
+          <p>Outside class that turned into a home lab: a Linux server running about thirty services, a voice assistant I trained myself, and a pile of tools for my own machines. Most of my IT experience comes from helping people one problem at a time, first as a freelancer and most recently as an IT support co-op.</p>
+          <p>I was born in New Delhi in 2006, moved to Canada in 2013 and became a citizen in 2018. I grew up in Brockville, Ontario.</p>
         </div>
-    </footer>
+        <ul class="about-cards reveal-group">
+          <li class="card mini"><span class="mini-title">Rally</span>A world first-place podium in one of Dirt Rally 2's historic events.</li>
+          <li class="card mini"><span class="mini-title">In the paper</span>Featured twice in the Brockville Recorder and Times.</li>
+          <li class="card mini"><span class="mini-title">Cars</span>Dream car: the 1989 Toyota Century.</li>
+          <li class="card mini"><span class="mini-title">Photography</span>Macro, astro and infrared. Some of it is below.</li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <h2 class="section-title"><span class="num">02</span> Experience</h2>
+      <ol class="timeline">
+        <li class="job reveal">
+          <div class="job-head"><h3>IT Support Specialist (Co-op)</h3><span class="job-where">Prysmian Group · Prescott, ON</span></div>
+          <ul>
+            <li>Tier 1 and Tier 2 technical support for internal staff, resolving hardware and software issues.</li>
+            <li>Deployed, configured and maintained workstations and peripherals.</li>
+            <li>Documented troubleshooting steps and solutions in the internal ticketing system.</li>
+          </ul>
+        </li>
+        <li class="job reveal">
+          <div class="job-head"><h3>Independent IT Support</h3><span class="job-where">Freelance · Ottawa &amp; Brockville, ON · 2021 – present</span></div>
+          <ul>
+            <li>Diagnose and fix OS errors, driver conflicts and boot loops for personal workstations.</li>
+            <li>Recovered a data partition others had written off, merging SSD volumes with no data loss.</li>
+            <li>Build custom PCs, install components and set up home servers and networks.</li>
+            <li>Explain technical problems clearly to people who aren't technical.</li>
+          </ul>
+        </li>
+        <li class="job reveal">
+          <div class="job-head"><h3>Automotive Service Technician (Co-op)</h3><span class="job-where">Thousand Islands Toyota · Brockville, ON · Sept 2022 – Jan 2023</span></div>
+          <ul>
+            <li>Used diagnostic software to isolate electrical and sensor faults with a methodical troubleshooting approach.</li>
+            <li>Kept accurate service logs and followed strict safety protocols (WHMIS).</li>
+          </ul>
+        </li>
+        <li class="job reveal">
+          <div class="job-head"><h3>Line Cook &amp; Customer Service</h3><span class="job-where">BarBurrito · Brockville, ON · Apr 2022 – Aug 2023</span></div>
+          <ul>
+            <li>The on-site go-to for POS terminal and digital signage problems during rushes.</li>
+            <li>Fast, accurate order fulfilment, cash and card handling, inventory and restocking.</li>
+          </ul>
+        </li>
+        <li class="job reveal">
+          <div class="job-head"><h3>Volunteer Photographer</h3><span class="job-where">Downtown Brockville Christmas event</span></div>
+          <ul><li>Photographed families for the event's Santa photos.</li></ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <h2 class="section-title"><span class="num">03</span> Projects</h2>
+      <p class="section-lead">Things I build and run myself. Public ones link to GitHub; the rest live on my home server.</p>
+
+      <article class="feature reveal">
+        <div class="feature-text">
+          <p class="kicker">Home lab · Self-hosted</p>
+          <h3>Phrolova, my Linux home server</h3>
+          <p>An Ubuntu server that runs about thirty Docker services: media (Jellyfin, Navidrome), photos (Immich), Home Assistant, an offline copy of Wikipedia, a private search engine, game servers and more, across an SSD and two hard drives.</p>
+          <ul class="ticks">
+            <li>Bash monitoring that sends Discord alerts when a service goes down or the CPU overheats.</li>
+            <li>Samba file sharing and Tailscale for secure remote access, with no ports opened.</li>
+            <li>Moved a BeamMP game server from Windows to Linux, getting past CGNAT with Tailscale.</li>
+            <li>A dashboard and a wall tablet that show every container, with one-tap restarts.</li>
+          </ul>
+          <ul class="tags"><li>Ubuntu</li><li>Docker</li><li>Tailscale</li><li>Bash</li><li>Samba</li></ul>
+        </div>
+        <div class="feature-stats">
+          <div class="stat"><strong data-count="30">30</strong><span>containers</span></div>
+          <div class="stat"><strong>5 TB</strong><span>across three drives</span></div>
+          <div class="stat"><strong>24/7</strong><span>on a 2015 laptop</span></div>
+        </div>
+      </article>
+
+      <article class="feature reveal">
+        <div class="feature-text">
+          <p class="kicker">Voice assistant · Home Assistant</p>
+          <h3>Fairy, a voice assistant I trained myself</h3>
+          <p>A self-hosted voice assistant with its own personality. It listens through the server's built-in microphones and controls my lights, music, laptop and server.</p>
+          <ul class="ticks">
+            <li>Trained a custom "Hey Fairy" wake word with openWakeWord on my laptop's GPU (30,000 synthetic clips).</li>
+            <li>Thinks with a local model (Qwen3 on Ollama) when my laptop is on, and falls back to the cloud otherwise.</li>
+            <li>Tools for server health, container restarts (it asks first), offline Wikipedia, web search and laptop control.</li>
+            <li>Patched the satellite so it listens again after asking a question.</li>
+          </ul>
+          <ul class="tags"><li>Home Assistant</li><li>Python</li><li>Wyoming</li><li>Ollama</li><li>openWakeWord</li></ul>
+        </div>
+        <div class="feature-stats">
+          <div class="stat"><strong>~1.5 s</strong><span>local replies</span></div>
+          <div class="stat"><strong>35+</strong><span>tools and sensors</span></div>
+          <div class="stat"><strong>207 KB</strong><span>wake-word model</span></div>
+        </div>
+      </article>
+
+      <div class="project-grid reveal-group">
+        <a class="card project" href="https://github.com/Eagle10021/Legion-Controller" target="_blank" rel="noopener">
+          <p class="kicker">Python · Open source</p>
+          <h3>Legion Control</h3>
+          <p>Linux app for Lenovo Legion laptops: 4-zone RGB keyboard, software effects, battery health and charging modes, with a Home Assistant link.</p>
+          <ul class="tags"><li>Python</li><li>USB HID</li><li>CustomTkinter</li></ul>
+          <span class="link">View on GitHub →</span>
+        </a>
+        <a class="card project" href="https://github.com/Eagle10021/Custom-Cursors-Linux" target="_blank" rel="noopener">
+          <p class="kicker">Web tool · Open source</p>
+          <h3>Custom Cursors for Linux</h3>
+          <p>Converts Windows .ani cursor schemes into cursor themes for GNOME, KDE and XFCE, right in the browser.</p>
+          <ul class="tags"><li>JavaScript</li><li>Linux</li></ul>
+          <span class="link">View on GitHub →</span>
+        </a>
+        <a class="card project" href="https://github.com/Eagle10021/BeamNG-Livery-Maker" target="_blank" rel="noopener">
+          <p class="kicker">Web app · Open source</p>
+          <h3>BeamNG Livery Maker</h3>
+          <p>A browser-based livery creator for BeamNG.drive: design vehicle skins and export them ready for the game.</p>
+          <ul class="tags"><li>JavaScript</li><li>Canvas</li></ul>
+          <span class="link">View on GitHub →</span>
+        </a>
+        <a class="card project" href="https://github.com/Eagle10021/Arona-SDDM-Login" target="_blank" rel="noopener">
+          <p class="kicker">Linux theming · Open source</p>
+          <h3>Arona SDDM Login</h3>
+          <p>A Blue Archive-themed login screen for the SDDM display manager, updated for Qt 6.</p>
+          <ul class="tags"><li>QML</li><li>Qt 6</li><li>KDE</li></ul>
+          <span class="link">View on GitHub →</span>
+        </a>
+        <a class="card project" href="https://github.com/Eagle10021/AC-Print-Guide-Linux" target="_blank" rel="noopener">
+          <p class="kicker">Guide · Open source</p>
+          <h3>Algonquin Printing on Linux</h3>
+          <p>A setup guide that gets Algonquin College students printing from Linux machines.</p>
+          <ul class="tags"><li>CUPS</li><li>Documentation</li></ul>
+          <span class="link">View on GitHub →</span>
+        </a>
+        <div class="card project">
+          <p class="kicker">Browser extension · Self-hosted</p>
+          <h3>Lumen New Tab</h3>
+          <p>My browser's new tab: live video wallpapers, colours taken from the wallpaper, and a drawer with the status of every home-server service.</p>
+          <ul class="tags"><li>JavaScript</li><li>Python</li></ul>
+        </div>
+        <div class="card project">
+          <p class="kicker">AI · Self-hosted</p>
+          <h3>Offline Wikipedia with "Ask"</h3>
+          <p>The full English Wikipedia (119 GB) served from my server, plus a personal wiki, with an Ask feature that answers questions from the articles using a local AI.</p>
+          <ul class="tags"><li>Kiwix</li><li>MediaWiki</li><li>Python</li><li>Ollama</li></ul>
+        </div>
+        <div class="card project">
+          <p class="kicker">AI · Self-hosted</p>
+          <h3>Music Genre Tagger</h3>
+          <p>Tags my music library's genres from Last.fm, MusicBrainz and web evidence judged by a local AI, with a review page so nothing changes without my OK.</p>
+          <ul class="tags"><li>Python</li><li>SQLite</li><li>Ollama</li></ul>
+        </div>
+      </div>
+
+      <details class="coursework reveal">
+        <summary>Coursework: earlier labs</summary>
+        <p>The first version of this site was built for CST8285. Its lab pages are kept as they were:</p>
+        <ul>
+          <li><a href="legacy/index.html">Original portfolio</a> (and its <a href="legacy/cyber-index.html">Sunset Mirai version</a>)</li>
+          <li><a href="legacy/flexbox-projects.html">Flexbox projects page</a> · <a href="legacy/grid-gallery.html">CSS Grid gallery</a></li>
+          <li><a href="legacy/bootstrap-resume.html">Bootstrap resume</a> · <a href="legacy/interactive.html">JavaScript interactive page</a></li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <h2 class="section-title"><span class="num">04</span> Skills</h2>
+      <div class="skills-grid reveal-group">
+        <div class="card skill"><h3>Operating systems</h3><p>Windows 10/11 and Linux (Arch, Ubuntu): setup, troubleshooting, drivers, boot repair.</p></div>
+        <div class="card skill"><h3>Networking</h3><p>TCP/IP, DNS, DHCP, subnetting, port forwarding, Tailscale/WireGuard, SSH, Wireshark, Cisco Packet Tracer.</p></div>
+        <div class="card skill"><h3>Hardware</h3><p>PC building, diagnostics and repair for desktops and laptops, low-voltage systems.</p></div>
+        <div class="card skill"><h3>Self-hosting</h3><p>Docker and Compose, Home Assistant, Samba, Jellyfin, Immich, reverse proxies, backups, monitoring.</p></div>
+        <div class="card skill"><h3>Programming</h3><p>Python, Bash, Java, C, MySQL, HTML/CSS/JavaScript.</p></div>
+        <div class="card skill"><h3>Support</h3><p>Tier 1–2 support, ticketing and documentation, deployments, explaining fixes to non-technical users.</p></div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education">
+      <h2 class="section-title"><span class="num">05</span> Education</h2>
+      <div class="edu-grid">
+        <div class="card edu reveal">
+          <p class="kicker">2025 – 2027 (expected)</p>
+          <h3>Computer Engineering Technology: Computing Science</h3>
+          <p class="edu-where">Algonquin College · Ottawa, ON · Advanced Diploma</p>
+          <p>Dean's List, Winter 2025. Operating systems, database systems, network fundamentals, programming in C and Java, hardware and electronics.</p>
+        </div>
+        <div class="card edu reveal">
+          <p class="kicker">High school</p>
+          <h3>Thousand Islands Secondary School</h3>
+          <p class="edu-where">Brockville, ON</p>
+          <p>Specialist High Skills Major (SHSM) in Engineering.</p>
+        </div>
+        <div class="card edu reveal">
+          <p class="kicker">Certifications</p>
+          <h3>Safety &amp; service</h3>
+          <ul class="cert-list"><li>WHMIS (2024)</li><li>Class 5 forklift</li><li>Electrical safety awareness</li><li>Worker health &amp; safety awareness</li><li>Customer service certificate</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photography -->
+    <section class="section" id="photography">
+      <h2 class="section-title"><span class="num">06</span> Photography</h2>
+      <p class="section-lead">All shot by me. Tap a photo to see it larger.</p>
+      <div class="gallery reveal-group">
+        <button class="shot wide" data-full="images/web/infrared.webp"><img src="images/web/infrared-thumb.webp" alt="Near-infrared landscape: a lakeside pavilion with trees glowing pink from chlorophyll reflectance" loading="lazy"><span>Infrared landscape</span></button>
+        <button class="shot" data-full="images/web/Moon_Detail.webp"><img src="images/web/Moon_Detail-thumb.webp" alt="The moon's surface in detail, craters and texture against black" loading="lazy"><span>Moon detail</span></button>
+        <button class="shot wide" data-full="images/web/M4_Headlight.webp"><img src="images/web/M4_Headlight-thumb.webp" alt="BMW M4 laser headlight with yellow accents on a carbon hood" loading="lazy"><span>BMW M4 laser headlight</span></button>
+        <button class="shot" data-full="images/web/Bee.webp"><img src="images/web/Bee-thumb.webp" alt="A bee up close" loading="lazy"><span>Bee</span></button>
+        <button class="shot" data-full="images/web/Stars.webp"><img src="images/web/Stars-thumb.webp" alt="A dense field of stars in the night sky" loading="lazy"><span>Star field</span></button>
+        <button class="shot" data-full="images/web/toad.webp"><img src="images/web/toad-thumb.webp" alt="A toad camouflaged in earth and dry grass" loading="lazy"><span>Camouflaged toad</span></button>
+        <button class="shot" data-full="images/web/plant.webp"><img src="images/web/plant-thumb.webp" alt="A green plant sprouting from a cut tree stump" loading="lazy"><span>New growth</span></button>
+        <button class="shot wide" data-full="images/web/rose.webp"><img src="images/web/rose-thumb.webp" alt="A pink rose in sunlight among blurred leaves" loading="lazy"><span>Rose in sunlight</span></button>
+        <button class="shot" data-full="images/web/food.webp"><img src="images/web/food-thumb.webp" alt="An arranged plated dish" loading="lazy"><span>Plated dish</span></button>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <h2 class="section-title"><span class="num">07</span> Contact</h2>
+      <div class="contact-card card reveal">
+        <p class="contact-lead">Looking for co-op and IT support roles. Happy to talk about any of the projects above.</p>
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:eagle.sahota@gmail.com">eagle.sahota@gmail.com</a>
+          <a class="btn" href="https://github.com/Eagle10021" target="_blank" rel="noopener">github.com/Eagle10021</a>
+          <a class="btn" href="assets/Arshdeep-Sahota-Resume.pdf" download>Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Arshdeep Singh Sahota. Photos are my own. Music: "Origami" and "Snowfall" by <a href="https://www.scottbuckley.com.au" target="_blank" rel="noopener">Scott Buckley</a> (CC BY 4.0). Built with <a href="https://animejs.com" target="_blank" rel="noopener">anime.js</a>.</p>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo">
+    <img alt="">
+    <p class="lightbox-caption"></p>
+    <button class="lightbox-close" type="button" aria-label="Close">×</button>
+  </dialog>
+
+  <audio id="music" preload="none" loop></audio>
+  <script type="module" src="assets/js/site.js"></script>
 </body>
-
 </html>

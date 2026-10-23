@@ -1,0 +1,123 @@
+<!doctype html>
+<!-- Source of assets/Arshdeep-Sahota-Resume.pdf. Edit this file, then rebuild the PDF (see README). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arshdeep Sahota - Resume</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+  @page { size: Letter; margin: 0.4in 0.55in; }
+  :root { --accent: #c2183a; --ink: #1b1b1f; --muted: #5b5b66; --line: #e6e1dc; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 9pt/1.32 "Inter", system-ui, sans-serif; color: var(--ink); }
+  h1, h2, h3 { font-family: "Space Grotesk", "Inter", sans-serif; margin: 0; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent); padding-bottom: 8pt; }
+  h1 { font-size: 22pt; letter-spacing: -.01em; }
+  .tagline { color: var(--accent); font-weight: 600; font-size: 9.5pt; margin-top: 2pt; }
+  .contact { text-align: right; font-size: 9pt; color: var(--muted); line-height: 1.6; }
+  .contact a { color: inherit; text-decoration: none; }
+  h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin: 9pt 0 4pt; }
+  .item { margin-bottom: 5pt; break-inside: avoid; }
+  .item-head { display: flex; justify-content: space-between; gap: 12pt; }
+  h3 { font-size: 10.5pt; }
+  .where { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+  .sub { color: var(--muted); font-size: 9pt; }
+  h3 .sub { font: 400 9pt "Inter", sans-serif; }
+  ul { margin: 2pt 0 0; padding-left: 14pt; }
+  li { margin: 0; }
+  p { margin: 0; }
+  .skills { display: grid; grid-template-columns: 1.1in 1fr; gap: 2pt 10pt; }
+  .skills dt { font-weight: 600; }
+  .skills dd { margin: 0; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Arshdeep Sahota</h1>
+    <p class="tagline">Computer Engineering Technology student · IT support · Linux &amp; self-hosting</p>
+  </div>
+  <div class="contact">
+    <a href="mailto:eagle.sahota@gmail.com">eagle.sahota@gmail.com</a><br>
+    <a href="https://github.com/Eagle10021">github.com/Eagle10021</a><br>
+    <a href="https://manifest.01blue.org">manifest.01blue.org</a>
+  </div>
+</header>
+
+<h2>Profile</h2>
+<p>Dean's List Computer Engineering Technology student with hands-on IT support experience, from Tier 1–2 help desk work to freelance repairs. I build and run my own Linux home server with around 30 self-hosted services, and I enjoy tracking down why something broke and writing down how to fix it.</p>
+
+<h2>Experience</h2>
+<div class="item">
+  <div class="item-head"><h3>IT Support Specialist (Co-op)</h3><span class="where">Prysmian Group · Prescott, ON</span></div>
+  <ul>
+    <li>Provided Tier 1 and Tier 2 technical support to internal staff, resolving hardware and software issues.</li>
+    <li>Deployed, configured and maintained workstations and peripherals.</li>
+    <li>Documented troubleshooting steps and solutions in the internal ticketing system.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="item-head"><h3>Independent IT Support</h3><span class="where">Freelance · Ottawa &amp; Brockville, ON · 2021 – present</span></div>
+  <ul>
+    <li>Diagnose and resolve OS errors, driver conflicts and boot loops on personal workstations.</li>
+    <li>Recovered a lost data partition by merging SSD volumes with no data loss.</li>
+    <li>Assemble custom PCs, install components and set up home servers and networks.</li>
+    <li>Explain technical problems and fixes clearly to non-technical users.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="item-head"><h3>Automotive Service Technician (Co-op)</h3><span class="where">Thousand Islands Toyota · Brockville, ON · Sept 2022 – Jan 2023</span></div>
+  <ul>
+    <li>Used diagnostic software to isolate electrical and sensor faults with a methodical troubleshooting process.</li>
+    <li>Kept accurate daily service records and followed strict safety protocols (WHMIS).</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="item-head"><h3>Line Cook &amp; Customer Service</h3><span class="where">BarBurrito · Brockville, ON · Apr 2022 – Aug 2023</span></div>
+  <ul>
+    <li>On-site go-to for troubleshooting POS terminals and digital signage during peak hours.</li>
+    <li>Fast, accurate order fulfilment, cash and card handling, inventory and restocking.</li>
+  </ul>
+</div>
+
+<h2>Projects</h2>
+<div class="item">
+  <div class="item-head"><h3>Phrolova: Linux multi-service home server</h3><span class="where">2026 – present</span></div>
+  <ul>
+    <li>Ubuntu server running ~30 Docker services (media, photos, wiki, search, monitoring) on 5 TB across three drives.</li>
+    <li>Secure remote access over Tailscale (WireGuard); Samba file sharing; Bash monitoring with Discord alerts for downtime and temperature.</li>
+    <li>Home Assistant with a local voice assistant ("Fairy") that runs an LLM on my laptop's GPU, with 35+ tools and sensors.</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="item-head"><h3>Legion Control and other open-source tools</h3><span class="where">github.com/Eagle10021</span></div>
+  <ul>
+    <li>Python desktop app for a Lenovo Legion's RGB keyboard, battery and power modes, with a Home Assistant link; plus Linux tooling (cursor installer, SDDM theme, BeamNG livery maker).</li>
+  </ul>
+</div>
+<div class="item">
+  <div class="item-head"><h3>Network Simulation Labs</h3><span class="where">Algonquin College · 2025</span></div>
+  <ul><li>Designed business network topologies in Cisco Packet Tracer (static routing, switching) and verified them with traffic analysis.</li></ul>
+</div>
+
+<h2>Skills</h2>
+<dl class="skills">
+  <dt>Systems</dt><dd>Windows 10/11, Linux (Arch, Ubuntu), Docker, Home Assistant, Samba</dd>
+  <dt>Networking</dt><dd>TCP/IP, DNS, DHCP, subnetting, port forwarding, Tailscale/WireGuard, SSH, Wireshark, Packet Tracer</dd>
+  <dt>Hardware</dt><dd>PC building, diagnostics and repair for desktops and laptops</dd>
+  <dt>Programming</dt><dd>Python, Bash, Java, C, MySQL, HTML/CSS/JavaScript</dd>
+  <dt>Support</dt><dd>Tier 1–2 support, ticketing, documentation, workstation deployment</dd>
+</dl>
+
+<h2>Education</h2>
+<div class="item">
+  <div class="item-head"><h3>Computer Engineering Technology: Computing Science (Advanced Diploma)</h3><span class="where">2025 – 2027 (expected)</span></div>
+  <p class="sub">Algonquin College, Ottawa, ON · Dean's List, Winter 2025</p>
+</div>
+<div class="item">
+  <div class="item-head"><h3>Thousand Islands Secondary School <span class="sub">· Specialist High Skills Major (SHSM) in Engineering</span></h3><span class="where">Brockville, ON</span></div>
+</div>
+
+<p><strong>Certifications:</strong> WHMIS (2024) · Class 5 forklift · Electrical safety awareness · Worker health &amp; safety awareness · Customer service certificate</p>
+</body>
+</html>
