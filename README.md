@@ -25,6 +25,8 @@ My personal portfolio: IT support experience, the home server and voice assistan
 | `index.html` | The whole site |
 | `assets/css/site.css` | Styles; both themes are CSS variables under `[data-theme="standard"]` and `[data-theme="mirai"]` |
 | `assets/js/site.js` | Animations, theme toggle, music, menu, lightbox (ES module, loads anime.js from jsDelivr) |
+| `assets/js/netmap.js`, `assets/css/netmap.css` | The Homelab map (no dependencies; a copy of the docs site's) |
+| `assets/data/homelab.json` | The map's data: the public copy written by `build-map.py` in my private Phrolova-Files repo. Don't edit by hand |
 | `assets/favicon.svg` | Site icon |
 | `assets/Arshdeep-Sahota-Resume.pdf` | The resume linked from the site (generated, see below) |
 | `resume/resume.html` | Source of the resume PDF |

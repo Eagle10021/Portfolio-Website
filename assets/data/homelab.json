@@ -1,0 +1,963 @@
+{
+ "zones": [
+  {
+   "id": "devices",
+   "label": "Devices",
+   "note": "Everything that connects in"
+  },
+  {
+   "id": "network",
+   "label": "Network",
+   "note": "How it all reaches Phrolova"
+  },
+  {
+   "id": "server",
+   "label": "Phrolova",
+   "note": "A 2015 laptop running Ubuntu and Docker",
+   "cols": 2
+  },
+  {
+   "id": "storage",
+   "label": "Storage",
+   "note": "One SSD, two hard drives"
+  }
+ ],
+ "groups": [
+  {
+   "id": "g-legion",
+   "zone": "devices",
+   "label": "Shorekeeper (Legion 5 laptop)",
+   "color": "#4a6be0"
+  },
+  {
+   "id": "g-mobile",
+   "zone": "devices",
+   "label": "Phone and tablets",
+   "color": "#d9467e"
+  },
+  {
+   "id": "g-lanonly",
+   "zone": "devices",
+   "label": "Retro",
+   "color": "#2f6b55"
+  },
+  {
+   "id": "g-net",
+   "zone": "network",
+   "label": "",
+   "color": "#3f8fe0"
+  },
+  {
+   "id": "g-host",
+   "zone": "server",
+   "label": "The server",
+   "color": "#a3142c"
+  },
+  {
+   "id": "g-admin",
+   "zone": "server",
+   "label": "Management",
+   "color": "#7b8794"
+  },
+  {
+   "id": "g-media",
+   "zone": "server",
+   "label": "Media",
+   "color": "#d9467e"
+  },
+  {
+   "id": "g-photos",
+   "zone": "server",
+   "label": "Photos",
+   "color": "#e3913a"
+  },
+  {
+   "id": "g-voice",
+   "zone": "server",
+   "label": "Home Assistant and Fairy",
+   "color": "#22a889"
+  },
+  {
+   "id": "g-ai",
+   "zone": "server",
+   "label": "AI chat and search",
+   "color": "#9b72f2"
+  },
+  {
+   "id": "g-know",
+   "zone": "server",
+   "label": "Knowledge",
+   "color": "#c9a227"
+  },
+  {
+   "id": "g-tools",
+   "zone": "server",
+   "label": "Tools",
+   "color": "#3aa6b9"
+  },
+  {
+   "id": "g-disks",
+   "zone": "storage",
+   "label": "",
+   "color": "#b0855a"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "legion",
+   "group": "g-legion",
+   "label": "Shorekeeper-Arch",
+   "kind": "Laptop",
+   "sub": "Arch Linux · RTX 3060",
+   "about": "My main laptop, and the GPU box: it runs the local AI models the server's services use.",
+   "facts": [],
+   "major": true
+  },
+  {
+   "id": "ollama",
+   "group": "g-legion",
+   "label": "Ollama",
+   "kind": "Docker",
+   "sub": "Local LLMs",
+   "about": "Runs language models on the laptop's GPU. The server's voice assistant and tools call it over Tailscale, and it's only on when needed so the GPU stays free for games.",
+   "facts": []
+  },
+  {
+   "id": "bridge",
+   "group": "g-legion",
+   "label": "Media bridge",
+   "kind": "Python service",
+   "sub": "",
+   "about": "A small service I wrote so Home Assistant can show and control the laptop's music, volume and power from the wall tablet or by voice.",
+   "facts": []
+  },
+  {
+   "id": "lumen",
+   "group": "g-legion",
+   "label": "Lumen",
+   "kind": "Edge new tab",
+   "sub": "",
+   "about": "A browser new tab page I made, with live wallpapers and a menu of my server's services.",
+   "facts": []
+  },
+  {
+   "id": "sunshine",
+   "group": "g-legion",
+   "label": "Sunshine",
+   "kind": "Service",
+   "sub": "",
+   "about": "Streams local split-screen games to a friend over Tailscale, so we can play together remotely.",
+   "facts": []
+  },
+  {
+   "id": "lynx",
+   "group": "g-mobile",
+   "label": "Lynx",
+   "kind": "Phone",
+   "sub": "Phone",
+   "about": "",
+   "facts": []
+  },
+  {
+   "id": "zhezhi",
+   "group": "g-mobile",
+   "label": "ZheZhi",
+   "kind": "Android tablet",
+   "sub": "Wall tablet",
+   "about": "A wall-mounted tablet showing my Home Assistant dashboard: lights, music and server status.",
+   "facts": []
+  },
+  {
+   "id": "xp",
+   "group": "g-lanonly",
+   "label": "MaoMao XP",
+   "kind": "Windows XP laptop",
+   "sub": "Windows XP laptop",
+   "about": "A 2000s Windows XP laptop I restored and themed. Helper services on the server let it browse the modern web and stream my media library.",
+   "facts": []
+  },
+  {
+   "id": "internet",
+   "group": "g-net",
+   "label": "Internet",
+   "kind": "WAN",
+   "sub": "",
+   "about": "",
+   "facts": []
+  },
+  {
+   "id": "router",
+   "group": "g-net",
+   "label": "Home router",
+   "kind": "Router",
+   "sub": "",
+   "about": "The home network. No ports are opened to the internet.",
+   "facts": [],
+   "major": true
+  },
+  {
+   "id": "tailscale",
+   "group": "g-net",
+   "label": "Tailscale",
+   "kind": "Mesh VPN",
+   "sub": "Mesh VPN",
+   "about": "Connects all my devices over encrypted WireGuard links, so I can reach the server from anywhere without opening any ports.",
+   "facts": [],
+   "major": true
+  },
+  {
+   "id": "ts-serve",
+   "group": "g-net",
+   "label": "Tailscale Serve",
+   "kind": "Proxy",
+   "sub": "HTTPS inside the VPN",
+   "about": "Gives services real HTTPS certificates, still only reachable from my own devices.",
+   "facts": []
+  },
+  {
+   "id": "cloudflare",
+   "group": "g-net",
+   "label": "Cloudflare Tunnel",
+   "kind": "Tunnel",
+   "sub": "",
+   "about": "An outbound tunnel that publishes exactly one service (the photo library) without opening router ports.",
+   "facts": []
+  },
+  {
+   "id": "phrolova",
+   "group": "g-host",
+   "label": "Phrolova",
+   "kind": "Server",
+   "sub": "Ubuntu Server · 16 GB",
+   "about": "A 2015 Dell laptop running 24/7 as my home server, with about thirty Docker containers.",
+   "facts": [
+    [
+     "Containers",
+     "~30"
+    ]
+   ],
+   "major": true
+  },
+  {
+   "id": "ssh",
+   "group": "g-host",
+   "label": "SSH",
+   "kind": "Host service",
+   "sub": "",
+   "about": "Key-only remote shell.",
+   "facts": []
+  },
+  {
+   "id": "samba",
+   "group": "g-host",
+   "label": "Samba",
+   "kind": "Host service",
+   "sub": "File sharing",
+   "about": "Shares the media drive as a network drive.",
+   "facts": []
+  },
+  {
+   "id": "backups",
+   "group": "g-host",
+   "label": "Nightly backups",
+   "kind": "systemd timers",
+   "sub": "Every night",
+   "about": "Timers that copy the photo and music libraries to a second drive every night.",
+   "facts": []
+  },
+  {
+   "id": "thermal",
+   "group": "g-host",
+   "label": "Thermal check",
+   "kind": "Script",
+   "sub": "",
+   "about": "A Bash script that sends a Discord alert if the CPU overheats.",
+   "facts": []
+  },
+  {
+   "id": "dockge",
+   "group": "g-admin",
+   "label": "Dockge",
+   "kind": "Docker",
+   "sub": "",
+   "about": "A web UI for managing the Docker Compose stacks.",
+   "facts": []
+  },
+  {
+   "id": "beszel",
+   "group": "g-admin",
+   "label": "Beszel",
+   "kind": "Docker",
+   "sub": "Monitoring",
+   "about": "Monitoring for CPU, memory, temperatures, containers and drive health.",
+   "facts": []
+  },
+  {
+   "id": "cloudflared",
+   "group": "g-admin",
+   "label": "cloudflared",
+   "kind": "Docker",
+   "sub": "",
+   "about": "The tunnel connector.",
+   "facts": []
+  },
+  {
+   "id": "jellyfin",
+   "group": "g-media",
+   "label": "Jellyfin",
+   "kind": "Docker",
+   "sub": "Films and shows",
+   "about": "Self-hosted streaming for my films and shows.",
+   "facts": []
+  },
+  {
+   "id": "navidrome",
+   "group": "g-media",
+   "label": "Navidrome",
+   "kind": "Docker",
+   "sub": "Music",
+   "about": "Self-hosted music streaming.",
+   "facts": []
+  },
+  {
+   "id": "tagger",
+   "group": "g-media",
+   "label": "Music tagger",
+   "kind": "Docker",
+   "sub": "AI genre tags",
+   "about": "My tool that suggests genres with a local AI model and online sources, and only writes after I approve.",
+   "facts": []
+  },
+  {
+   "id": "theatre",
+   "group": "g-media",
+   "label": "MaoMao Theatre",
+   "kind": "Docker",
+   "sub": "Streaming for XP",
+   "about": "Transcodes shows on the fly into a format the Windows XP laptop can play.",
+   "facts": []
+  },
+  {
+   "id": "subsonic",
+   "group": "g-media",
+   "label": "Subsonic relay",
+   "kind": "Docker",
+   "sub": "Music for XP",
+   "about": "Translates the music server's API into an older dialect the XP music player understands.",
+   "facts": []
+  },
+  {
+   "id": "immich",
+   "group": "g-photos",
+   "label": "Immich server",
+   "kind": "Docker",
+   "sub": "",
+   "about": "Self-hosted photo and video backup, the one service shared publicly (through the tunnel).",
+   "facts": [],
+   "major": true
+  },
+  {
+   "id": "immich-ml",
+   "group": "g-photos",
+   "label": "Machine learning",
+   "kind": "Docker",
+   "sub": "",
+   "about": "Face and object search, accelerated on the Intel graphics.",
+   "facts": []
+  },
+  {
+   "id": "immich-db",
+   "group": "g-photos",
+   "label": "Postgres",
+   "kind": "Docker",
+   "sub": "",
+   "about": "The photo library's database.",
+   "facts": []
+  },
+  {
+   "id": "immich-redis",
+   "group": "g-photos",
+   "label": "Valkey",
+   "kind": "Docker",
+   "sub": "",
+   "about": "Job queue.",
+   "facts": []
+  },
+  {
+   "id": "ha",
+   "group": "g-voice",
+   "label": "Home Assistant",
+   "kind": "Docker",
+   "sub": "",
+   "about": "Home automation: lights, routines, dashboards and my voice assistant.",
+   "facts": [],
+   "major": true
+  },
+  {
+   "id": "fairy",
+   "group": "g-voice",
+   "label": "Fairy",
+   "kind": "Voice assistant",
+   "sub": "Voice assistant",
+   "about": "My voice assistant with a custom-trained wake word. It thinks with a local model on the laptop when that's on, and falls back otherwise.",
+   "facts": []
+  },
+  {
+   "id": "whisper",
+   "group": "g-voice",
+   "label": "Whisper",
+   "kind": "Docker",
+   "sub": "Speech to text",
+   "about": "",
+   "facts": []
+  },
+  {
+   "id": "piper",
+   "group": "g-voice",
+   "label": "Piper",
+   "kind": "Docker",
+   "sub": "Text to speech",
+   "about": "",
+   "facts": []
+  },
+  {
+   "id": "wakeword",
+   "group": "g-voice",
+   "label": "openWakeWord",
+   "kind": "Docker",
+   "sub": "Wake word",
+   "about": "",
+   "facts": []
+  },
+  {
+   "id": "fairy-llm",
+   "group": "g-voice",
+   "label": "fairy-llm",
+   "kind": "Docker",
+   "sub": "Offline model",
+   "about": "A small model on the server itself, so the assistant still works with the laptop off and no internet.",
+   "facts": []
+  },
+  {
+   "id": "openwebui",
+   "group": "g-ai",
+   "label": "Open WebUI",
+   "kind": "Docker",
+   "sub": "AI chat",
+   "about": "A chat interface for the local models.",
+   "facts": []
+  },
+  {
+   "id": "searxng",
+   "group": "g-ai",
+   "label": "SearXNG",
+   "kind": "Docker",
+   "sub": "Private search",
+   "about": "A private search engine that the AI tools also use for web lookups.",
+   "facts": []
+  },
+  {
+   "id": "kiwix",
+   "group": "g-know",
+   "label": "Kiwix",
+   "kind": "Docker",
+   "sub": "Offline Wikipedia",
+   "about": "A full offline copy of Wikipedia.",
+   "facts": []
+  },
+  {
+   "id": "wiki-ask",
+   "group": "g-know",
+   "label": "Wiki Ask",
+   "kind": "Docker",
+   "sub": "",
+   "about": "Ask a question and get an answer with sources from the offline wikis.",
+   "facts": []
+  },
+  {
+   "id": "mediawiki",
+   "group": "g-know",
+   "label": "MediaWiki",
+   "kind": "Docker",
+   "sub": "Personal wiki",
+   "about": "My personal wiki.",
+   "facts": []
+  },
+  {
+   "id": "docs",
+   "group": "g-know",
+   "label": "Docs site",
+   "kind": "Docker (nginx)",
+   "sub": "",
+   "about": "My private documentation site, rebuilt automatically on every git push.",
+   "facts": []
+  },
+  {
+   "id": "convertx",
+   "group": "g-tools",
+   "label": "ConvertX",
+   "kind": "Docker",
+   "sub": "File converter",
+   "about": "Converts files between formats.",
+   "facts": []
+  },
+  {
+   "id": "snaglist",
+   "group": "g-tools",
+   "label": "Snaglist",
+   "kind": "Docker",
+   "sub": "Team tracker",
+   "about": "A task tracker and whiteboard for a team project.",
+   "facts": []
+  },
+  {
+   "id": "webone",
+   "group": "g-tools",
+   "label": "WebOne",
+   "kind": "Docker",
+   "sub": "Proxy for XP",
+   "about": "A proxy that lets old browsers load modern HTTPS websites.",
+   "facts": []
+  },
+  {
+   "id": "ssd",
+   "group": "g-disks",
+   "label": "System SSD",
+   "kind": "SSD",
+   "sub": "System",
+   "about": "The OS, Docker, databases and the offline Wikipedia.",
+   "facts": [],
+   "major": true
+  },
+  {
+   "id": "nahida",
+   "group": "g-disks",
+   "label": "Nahida",
+   "kind": "USB HDD",
+   "sub": "4 TB",
+   "about": "The main media and photo library.",
+   "facts": [],
+   "major": true
+  },
+  {
+   "id": "klee",
+   "group": "g-disks",
+   "label": "Klee",
+   "kind": "USB HDD",
+   "sub": "500 GB",
+   "about": "The backup drive for photos and music.",
+   "facts": []
+  }
+ ],
+ "edges": [
+  {
+   "a": "internet",
+   "b": "router",
+   "type": "wan",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "internet",
+   "b": "cloudflare",
+   "type": "public",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "cloudflare",
+   "b": "cloudflared",
+   "type": "public",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "cloudflared",
+   "b": "immich",
+   "type": "public",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "router",
+   "b": "phrolova",
+   "type": "lan",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "router",
+   "b": "legion",
+   "type": "lan",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "router",
+   "b": "xp",
+   "type": "lan",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "tailscale",
+   "b": "phrolova",
+   "type": "tailnet",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "tailscale",
+   "b": "legion",
+   "type": "tailnet",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "tailscale",
+   "b": "g-mobile",
+   "type": "tailnet",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "ts-serve",
+   "b": "tailscale",
+   "type": "tailnet",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "ts-serve",
+   "b": "ha",
+   "type": "tailnet",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "ts-serve",
+   "b": "snaglist",
+   "type": "tailnet",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "g-media",
+   "b": "nahida",
+   "type": "data",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "g-photos",
+   "b": "nahida",
+   "type": "data",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "nahida",
+   "b": "klee",
+   "type": "backup",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "phrolova",
+   "b": "ssd",
+   "type": "data",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "ha",
+   "b": "bridge",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "ollama",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "ha",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "whisper",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "piper",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "wakeword",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "fairy-llm",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "kiwix",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "fairy",
+   "b": "searxng",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "openwebui",
+   "b": "ollama",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "tagger",
+   "b": "ollama",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "tagger",
+   "b": "searxng",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "tagger",
+   "b": "navidrome",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "searxng",
+   "b": "kiwix",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "wiki-ask",
+   "b": "kiwix",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "wiki-ask",
+   "b": "mediawiki",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "zhezhi",
+   "b": "ha",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "lynx",
+   "b": "ha",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "lumen",
+   "b": "phrolova",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "sunshine",
+   "b": "tailscale",
+   "type": "tailnet",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "xp",
+   "b": "webone",
+   "type": "lan",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "xp",
+   "b": "theatre",
+   "type": "lan",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "xp",
+   "b": "subsonic",
+   "type": "lan",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "subsonic",
+   "b": "navidrome",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "theatre",
+   "b": "nahida",
+   "type": "data",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "immich-ml",
+   "b": "immich",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "immich-db",
+   "b": "immich",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "immich-redis",
+   "b": "immich",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "immich-db",
+   "b": "ssd",
+   "type": "data",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "kiwix",
+   "b": "ssd",
+   "type": "data",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "ha",
+   "b": "nahida",
+   "type": "data",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "snaglist",
+   "b": "nahida",
+   "type": "data",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "samba",
+   "b": "nahida",
+   "type": "data",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "backups",
+   "b": "nahida",
+   "type": "backup",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "backups",
+   "b": "klee",
+   "type": "backup",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "beszel",
+   "b": "phrolova",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "dockge",
+   "b": "phrolova",
+   "type": "uses",
+   "label": "",
+   "base": false
+  }
+ ],
+ "edgeTypes": {
+  "wan": {
+   "label": "Internet",
+   "about": "The home connection out to the internet"
+  },
+  "lan": {
+   "label": "Home network",
+   "about": "Wired or Wi-Fi on the home LAN"
+  },
+  "tailnet": {
+   "label": "Tailscale",
+   "about": "Encrypted WireGuard links between my devices, from anywhere"
+  },
+  "public": {
+   "label": "Public",
+   "about": "Reachable from the internet through Cloudflare"
+  },
+  "uses": {
+   "label": "Uses",
+   "about": "One service calling another"
+  },
+  "data": {
+   "label": "Stored on",
+   "about": "Where a service keeps its files"
+  },
+  "backup": {
+   "label": "Backup",
+   "about": "Nightly copies"
+  }
+ },
+ "caption": "My home lab, simplified. Hover or tap a part to see what it connects to."
+}

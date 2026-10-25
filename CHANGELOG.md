@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2026-10-24
+
+### Added
+- **Homelab section and nav tab**: an interactive map of my devices, network, home server services and storage. Hover or tap a part to light up its connections; click for details. Works in both themes and on phones.
+- `assets/js/netmap.js`, `assets/css/netmap.css` and `assets/data/homelab.json`. The data is the public copy of my private network map: no addresses, ports, hostnames, paths or other people's devices.
+
+### Changed
+- Sections after Projects are renumbered (Skills is now 05).
+
 ## [3.0.0] - 2026-10-23
 
 ### Added

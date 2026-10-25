@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Fredoka:wght@500;600&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/netmap.css">
   <script>
     // Apply the saved theme before first paint (no flash of the wrong theme)
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -29,6 +30,7 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#homelab">Homelab</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#photography">Photography</a>
@@ -51,7 +53,7 @@
   </header>
   <nav class="mobile-menu" id="mobile-menu" hidden aria-label="Sections">
     <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a>
-    <a href="#skills">Skills</a><a href="#education">Education</a><a href="#photography">Photography</a>
+    <a href="#homelab">Homelab</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#photography">Photography</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -251,9 +253,16 @@
       </details>
     </section>
 
+    <!-- Homelab -->
+    <section class="section" id="homelab">
+      <h2 class="section-title"><span class="num">04</span> Homelab</h2>
+      <p class="section-lead">How my devices, my home server and its services fit together. Hover or tap any part to see what it connects to, and click for more.</p>
+      <div class="netmap reveal" data-src="assets/data/homelab.json"></div>
+    </section>
+
     <!-- Skills -->
     <section class="section" id="skills">
-      <h2 class="section-title"><span class="num">04</span> Skills</h2>
+      <h2 class="section-title"><span class="num">05</span> Skills</h2>
       <div class="skills-grid reveal-group">
         <div class="card skill"><h3>Operating systems</h3><p>Windows 10/11 and Linux (Arch, Ubuntu): setup, troubleshooting, drivers, boot repair.</p></div>
         <div class="card skill"><h3>Networking</h3><p>TCP/IP, DNS, DHCP, subnetting, port forwarding, Tailscale/WireGuard, SSH, Wireshark, Cisco Packet Tracer.</p></div>
@@ -266,7 +275,7 @@
 
     <!-- Education -->
     <section class="section" id="education">
-      <h2 class="section-title"><span class="num">05</span> Education</h2>
+      <h2 class="section-title"><span class="num">06</span> Education</h2>
       <div class="edu-grid">
         <div class="card edu reveal">
           <p class="kicker">2025 – 2027 (expected)</p>
@@ -290,7 +299,7 @@
 
     <!-- Photography -->
     <section class="section" id="photography">
-      <h2 class="section-title"><span class="num">06</span> Photography</h2>
+      <h2 class="section-title"><span class="num">07</span> Photography</h2>
       <p class="section-lead">All shot by me. Tap a photo to see it larger.</p>
       <div class="gallery reveal-group">
         <button class="shot wide" data-full="images/web/infrared.webp"><img src="images/web/infrared-thumb.webp" alt="Near-infrared landscape: a lakeside pavilion with trees glowing pink from chlorophyll reflectance" loading="lazy"><span>Infrared landscape</span></button>
@@ -307,7 +316,7 @@
 
     <!-- Contact -->
     <section class="section contact" id="contact">
-      <h2 class="section-title"><span class="num">07</span> Contact</h2>
+      <h2 class="section-title"><span class="num">08</span> Contact</h2>
       <div class="contact-card card reveal">
         <p class="contact-lead">Looking for co-op and IT support roles. Happy to talk about any of the projects above.</p>
         <div class="contact-actions">
@@ -330,6 +339,7 @@
   </dialog>
 
   <audio id="music" preload="none" loop></audio>
+  <script src="assets/js/netmap.js" defer></script>
   <script type="module" src="assets/js/site.js"></script>
 </body>
 </html>
