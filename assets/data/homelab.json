@@ -12,45 +12,63 @@
   },
   {
    "id": "server",
-   "label": "Phrolova",
+   "label": "Server",
    "note": "A 2015 laptop running Ubuntu and Docker",
-   "cols": 2
+   "layout": "panel"
   },
   {
    "id": "storage",
    "label": "Storage",
-   "note": "One SSD, two hard drives"
+   "note": "One SSD, two USB hard drives"
   }
  ],
  "groups": [
   {
-   "id": "g-legion",
+   "id": "g-xp",
    "zone": "devices",
-   "label": "Shorekeeper (Legion 5 laptop)",
-   "color": "#4a6be0"
-  },
-  {
-   "id": "g-mobile",
-   "zone": "devices",
-   "label": "Phone and tablets",
-   "color": "#d9467e"
-  },
-  {
-   "id": "g-lanonly",
-   "zone": "devices",
-   "label": "Retro",
+   "label": "LAN only",
    "color": "#2f6b55"
   },
   {
-   "id": "g-net",
+   "id": "g-legion",
+   "zone": "devices",
+   "label": "Laptop",
+   "color": "#4a6be0"
+  },
+  {
+   "id": "g-lynx",
+   "zone": "devices",
+   "label": "Phone",
+   "color": "#d9467e"
+  },
+  {
+   "id": "g-zhezhi",
+   "zone": "devices",
+   "label": "Wall tablet",
+   "color": "#22a889"
+  },
+  {
+   "id": "g-internet",
    "zone": "network",
-   "label": "",
+   "label": "Internet",
+   "color": "#f08a24"
+  },
+  {
+   "id": "g-router",
+   "zone": "network",
+   "label": "LAN",
    "color": "#3f8fe0"
+  },
+  {
+   "id": "g-tailscale",
+   "zone": "network",
+   "label": "Tailnet",
+   "color": "#22a889"
   },
   {
    "id": "g-host",
    "zone": "server",
-   "label": "The server",
+   "label": "System",
    "color": "#a3142c"
   },
   {
@@ -74,13 +92,13 @@
   {
    "id": "g-voice",
    "zone": "server",
-   "label": "Home Assistant and Fairy",
+   "label": "Home and voice",
    "color": "#22a889"
   },
   {
    "id": "g-ai",
    "zone": "server",
-   "label": "AI chat and search",
+   "label": "AI and search",
    "color": "#9b72f2"
   },
   {
@@ -96,10 +114,22 @@
    "color": "#3aa6b9"
   },
   {
-   "id": "g-disks",
+   "id": "g-ssd",
    "zone": "storage",
-   "label": "",
+   "label": "SSD",
+   "color": "#8a8f98"
+  },
+  {
+   "id": "g-nahida",
+   "zone": "storage",
+   "label": "Library",
    "color": "#b0855a"
+  },
+  {
+   "id": "g-klee",
+   "zone": "storage",
+   "label": "Backup",
+   "color": "#d9467e"
   }
  ],
  "nodes": [
@@ -151,43 +181,47 @@
   },
   {
    "id": "lynx",
-   "group": "g-mobile",
+   "group": "g-lynx",
    "label": "Lynx",
    "kind": "Phone",
    "sub": "Phone",
    "about": "",
-   "facts": []
+   "facts": [],
+   "major": true
   },
   {
    "id": "zhezhi",
-   "group": "g-mobile",
+   "group": "g-zhezhi",
    "label": "ZheZhi",
    "kind": "Android tablet",
    "sub": "Wall tablet",
    "about": "A wall-mounted tablet showing my Home Assistant dashboard: lights, music and server status.",
-   "facts": []
+   "facts": [],
+   "major": true
   },
   {
    "id": "xp",
-   "group": "g-lanonly",
+   "group": "g-xp",
    "label": "MaoMao XP",
    "kind": "Windows XP laptop",
    "sub": "Windows XP laptop",
    "about": "A 2000s Windows XP laptop I restored and themed. Helper services on the server let it browse the modern web and stream my media library.",
-   "facts": []
+   "facts": [],
+   "major": true
   },
   {
    "id": "internet",
-   "group": "g-net",
+   "group": "g-internet",
    "label": "Internet",
    "kind": "WAN",
    "sub": "",
    "about": "",
-   "facts": []
+   "facts": [],
+   "major": true
   },
   {
    "id": "router",
-   "group": "g-net",
+   "group": "g-router",
    "label": "Home router",
    "kind": "Router",
    "sub": "",
@@ -197,7 +231,7 @@
   },
   {
    "id": "tailscale",
-   "group": "g-net",
+   "group": "g-tailscale",
    "label": "Tailscale",
    "kind": "Mesh VPN",
    "sub": "Mesh VPN",
@@ -207,7 +241,7 @@
   },
   {
    "id": "ts-serve",
-   "group": "g-net",
+   "group": "g-tailscale",
    "label": "Tailscale Serve",
    "kind": "Proxy",
    "sub": "HTTPS inside the VPN",
@@ -216,7 +250,7 @@
   },
   {
    "id": "cloudflare",
-   "group": "g-net",
+   "group": "g-internet",
    "label": "Cloudflare Tunnel",
    "kind": "Tunnel",
    "sub": "",
@@ -353,8 +387,7 @@
    "kind": "Docker",
    "sub": "",
    "about": "Self-hosted photo and video backup, the one service shared publicly (through the tunnel).",
-   "facts": [],
-   "major": true
+   "facts": []
   },
   {
    "id": "immich-ml",
@@ -390,8 +423,7 @@
    "kind": "Docker",
    "sub": "",
    "about": "Home automation: lights, routines, dashboards and my voice assistant.",
-   "facts": [],
-   "major": true
+   "facts": []
   },
   {
    "id": "fairy",
@@ -521,32 +553,36 @@
   },
   {
    "id": "ssd",
-   "group": "g-disks",
+   "group": "g-ssd",
    "label": "System SSD",
    "kind": "SSD",
    "sub": "System",
    "about": "The OS, Docker, databases and the offline Wikipedia.",
    "facts": [],
-   "major": true
+   "major": true,
+   "meter": 0.52
   },
   {
    "id": "nahida",
-   "group": "g-disks",
+   "group": "g-nahida",
    "label": "Nahida",
    "kind": "USB HDD",
    "sub": "4 TB",
    "about": "The main media and photo library.",
    "facts": [],
-   "major": true
+   "major": true,
+   "meter": 0.13
   },
   {
    "id": "klee",
-   "group": "g-disks",
+   "group": "g-klee",
    "label": "Klee",
    "kind": "USB HDD",
    "sub": "500 GB",
    "about": "The backup drive for photos and music.",
-   "facts": []
+   "facts": [],
+   "major": true,
+   "meter": 0.2
   }
  ],
  "edges": [
@@ -562,7 +598,7 @@
    "b": "cloudflare",
    "type": "public",
    "label": "",
-   "base": true
+   "base": false
   },
   {
    "a": "cloudflare",
@@ -576,7 +612,7 @@
    "b": "immich",
    "type": "public",
    "label": "",
-   "base": true
+   "base": false
   },
   {
    "a": "router",
@@ -615,7 +651,14 @@
   },
   {
    "a": "tailscale",
-   "b": "g-mobile",
+   "b": "lynx",
+   "type": "tailnet",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "tailscale",
+   "b": "zhezhi",
    "type": "tailnet",
    "label": "",
    "base": true
@@ -625,7 +668,7 @@
    "b": "tailscale",
    "type": "tailnet",
    "label": "",
-   "base": true
+   "base": false
   },
   {
    "a": "ts-serve",
@@ -646,14 +689,14 @@
    "b": "nahida",
    "type": "data",
    "label": "",
-   "base": true
+   "base": false
   },
   {
    "a": "g-photos",
    "b": "nahida",
    "type": "data",
    "label": "",
-   "base": true
+   "base": false
   },
   {
    "a": "nahida",
@@ -665,6 +708,20 @@
   {
    "a": "phrolova",
    "b": "ssd",
+   "type": "data",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "phrolova",
+   "b": "nahida",
+   "type": "data",
+   "label": "",
+   "base": true
+  },
+  {
+   "a": "phrolova",
+   "b": "klee",
    "type": "data",
    "label": "",
    "base": true

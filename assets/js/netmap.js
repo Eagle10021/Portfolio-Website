@@ -1,5 +1,7 @@
-// Network map: renders <div class="netmap" data-src="network.json"> as zones of clickable nodes with
-// connection lines. Hover or click a node to light up its links; click opens a details panel.
+// Network map: renders <div class="netmap" data-src="network.json"> as layers stacked top to bottom
+// (devices, network, server, storage). Each group is a card whose "major" node is its title and whose
+// other nodes are chips; a "panel" zone is one wide card with its groups as sections. Lines between the
+// layers are always drawn; the rest appear when a node is hovered or selected, and a click opens details.
 // No dependencies. Used by the docs site (full data) and the portfolio (public, sanitised data).
 (function () {
   "use strict";
@@ -9,11 +11,18 @@
   function h(tag, attrs, children) {
     var el = document.createElement(tag);
     for (var k in attrs || {}) {
+      if (attrs[k] == null) continue;
       if (k === "text") el.textContent = attrs[k];
       else if (k === "style") el.style.cssText = attrs[k];
-      else if (attrs[k] != null) el.setAttribute(k, attrs[k]);
+      else el.setAttribute(k, attrs[k]);
     }
     (children || []).forEach(function (c) { if (c) el.appendChild(c); });
+    return el;
+  }
+
+  function svgEl(tag, cls) {
+    var el = document.createElementNS(SVGNS, tag);
+    if (cls) el.setAttribute("class", cls);
     return el;
   }
 
@@ -29,29 +38,33 @@
   function render(root, data) {
     var base = root.dataset.src.replace(/[^/]*$/, "");   // icons are relative to the data file
     var types = data.edgeTypes || {};
-    var groups = {}, nodes = {}, els = {};
+    var groups = {}, nodes = {}, els = {}, anchors = {};
     (data.groups || []).forEach(function (g) { groups[g.id] = g; });
     data.nodes.forEach(function (n) { nodes[n.id] = n; });
 
-    // Links per node (a link to a group counts for every node in it).
     var adj = {};
-    function link(id, e) { (adj[id] = adj[id] || []).push(e); }
-    data.edges.forEach(function (e) { link(e.a, e); link(e.b, e); });
-
+    data.edges.forEach(function (e) {
+      (adj[e.a] = adj[e.a] || []).push(e);
+      (adj[e.b] = adj[e.b] || []).push(e);
+    });
+    function edgesOf(id) {
+      var n = nodes[id];
+      return (adj[id] || []).concat(n ? adj[n.group] || [] : []);
+    }
     function nameOf(id) { return (nodes[id] || groups[id] || {}).label || id; }
     function colorOf(id) {
-      var n = nodes[id], g = groups[n ? n.group : id];
+      var g = groups[nodes[id] ? nodes[id].group : id];
       return (g && g.color) || "var(--nm-accent)";
     }
 
-    // ---- toolbar: search + legend (click a line type to show only those lines)
+    // ---- toolbar
     var search = h("input", { type: "search", class: "nm-search", placeholder: "Find a device or service…", "aria-label": "Find a device or service" });
-    var legend = h("div", { class: "nm-legend" });
+    var legend = h("div", { class: "nm-legend", role: "group", "aria-label": "Line types" });
     var hiddenTypes = {};
     Object.keys(types).forEach(function (t) {
-      var b = h("button", { type: "button", class: "nm-key", "data-type": t, "aria-pressed": "true", title: types[t].about || "" }, [
+      var b = h("button", { type: "button", class: "nm-key", "aria-pressed": "true", title: types[t].about || "" }, [
         h("span", { class: "nm-swatch nm-t-" + t }),
-        document.createTextNode(types[t].label),
+        h("span", { text: types[t].label }),
       ]);
       b.addEventListener("click", function () {
         hiddenTypes[t] = !hiddenTypes[t];
@@ -61,64 +74,131 @@
       legend.appendChild(b);
     });
 
-    // ---- board: zones > groups > nodes
+    // ---- nodes
+    function avatar(n) {
+      if (n.icon) return h("img", { class: "nm-avatar", src: base + n.icon, alt: "" });
+      return h("span", { class: "nm-avatar nm-mono", "aria-hidden": "true", text: n.label.charAt(0) });
+    }
+
+    function hookup(el, n) {
+      el.addEventListener("mouseenter", function () { hover = n.id; draw(); });
+      el.addEventListener("mouseleave", function () { hover = null; draw(); });
+      el.addEventListener("focus", function () { hover = n.id; draw(); });
+      el.addEventListener("blur", function () { hover = null; draw(); });
+      el.addEventListener("click", function (ev) { ev.stopPropagation(); select(selected === n.id ? null : n.id); });
+      els[n.id] = el;
+    }
+
+    function titleRow(n) {
+      var meter = typeof n.meter === "number"
+        ? h("span", { class: "nm-meter", title: Math.round(n.meter * 100) + "% used" }, [
+            h("span", { style: "width:" + Math.max(3, Math.round(n.meter * 100)) + "%" }),
+          ])
+        : null;
+      var btn = h("button", { type: "button", class: "nm-title", "data-id": n.id }, [
+        avatar(n),
+        h("span", { class: "nm-title-text" }, [
+          h("span", { class: "nm-name", text: n.label }),
+          n.sub ? h("span", { class: "nm-sub", text: n.sub }) : null,
+          meter,
+        ]),
+      ]);
+      hookup(btn, n);
+      return btn;
+    }
+
+    function chip(n) {
+      var btn = h("button", { type: "button", class: "nm-chip", "data-id": n.id, title: n.sub || null }, [
+        h("span", { class: "nm-dot" }),
+        h("span", { text: n.label }),
+      ]);
+      hookup(btn, n);
+      anchors[n.id] = btn;
+      return btn;
+    }
+
+    function chipsOf(g) {
+      var list = data.nodes.filter(function (n) { return n.group === g.id && !n.major; });
+      if (!list.length) return null;
+      var wrap = h("div", { class: "nm-chips" });
+      list.forEach(function (n) { wrap.appendChild(chip(n)); });
+      return wrap;
+    }
+
+    function card(g) {
+      var majors = data.nodes.filter(function (n) { return n.group === g.id && n.major; });
+      var el = h("div", { class: "nm-card", "data-id": g.id, style: "--c:" + (g.color || "var(--nm-accent)") });
+      el.appendChild(h("p", { class: "nm-card-kicker", text: g.label }));
+      majors.forEach(function (n) { el.appendChild(titleRow(n)); anchors[n.id] = el; });
+      var chips = chipsOf(g);
+      if (chips) el.appendChild(chips);
+      if (majors.length === 0 && !chips) return null;
+      anchors[g.id] = el;
+      return el;
+    }
+
+    // ---- layers
     var board = h("div", { class: "nm-board" });
-    var svg = document.createElementNS(SVGNS, "svg");
-    svg.setAttribute("class", "nm-lines");
-    svg.setAttribute("aria-hidden", "true");
-    board.appendChild(svg);
-    var grid = h("div", { class: "nm-zones" });
-    board.appendChild(grid);
+    var under = svgEl("svg", "nm-lines");
+    var over = svgEl("svg", "nm-lines nm-lines-over");
+    under.setAttribute("aria-hidden", "true");
+    over.setAttribute("aria-hidden", "true");
+    var layers = h("div", { class: "nm-layers" });
+    board.appendChild(under);
+    board.appendChild(layers);
+    board.appendChild(over);
 
     data.zones.forEach(function (z) {
-      var zone = h("section", { class: "nm-zone", "data-zone": z.id, style: z.span ? "--span:" + z.span : null }, [
-        h("header", { class: "nm-zone-head" }, [
+      var zg = (data.groups || []).filter(function (g) { return g.zone === z.id; });
+      var lane = h("section", { class: "nm-lane", "data-zone": z.id }, [
+        h("header", { class: "nm-lane-head" }, [
           h("h3", { text: z.label }),
           z.note ? h("p", { text: z.note }) : null,
         ]),
       ]);
-      var inner = h("div", { class: "nm-zone-body" + (z.cols ? " nm-cols-" + z.cols : "") });
-      zone.appendChild(inner);
-      (data.groups || []).filter(function (g) { return g.zone === z.id; }).forEach(function (g) {
-        var box = h("div", { class: "nm-group", "data-id": g.id, style: "--c:" + (g.color || "var(--nm-accent)") });
-        if (g.label) box.appendChild(h("h4", { text: g.label }));
-        var list = h("div", { class: "nm-nodes" });
-        data.nodes.filter(function (n) { return n.group === g.id; }).forEach(function (n) {
-          var icon = n.icon
-            ? h("img", { class: "nm-icon", src: base + n.icon, alt: "" })
-            : h("span", { class: "nm-dot" });
-          var btn = h("button", { type: "button", class: "nm-node" + (n.major ? " nm-major" : ""), "data-id": n.id }, [
-            icon,
-            h("span", { class: "nm-text" }, [
-              h("span", { class: "nm-label", text: n.label }),
-              n.sub ? h("span", { class: "nm-sub", text: n.sub }) : null,
-            ]),
+      var body;
+      if (z.layout === "panel") {
+        // One wide card: the major nodes form its header, each group is a section of chips.
+        body = h("div", { class: "nm-card nm-panel-card", style: "--c:" + ((zg[0] && zg[0].color) || "var(--nm-accent)") });
+        var head = h("div", { class: "nm-panel-head" });
+        var sections = h("div", { class: "nm-sections" });
+        zg.forEach(function (g) {
+          data.nodes.filter(function (n) { return n.group === g.id && n.major; }).forEach(function (n) {
+            head.appendChild(titleRow(n));
+            anchors[n.id] = body;
+          });
+          var chips = chipsOf(g);
+          if (!chips) return;
+          var sec = h("div", { class: "nm-section", "data-id": g.id, style: "--c:" + (g.color || "var(--nm-accent)") }, [
+            h("p", { class: "nm-section-title" }, [h("span", { class: "nm-dot" }), h("span", { text: g.label })]),
+            chips,
           ]);
-          btn.addEventListener("mouseenter", function () { hover = n.id; draw(); });
-          btn.addEventListener("mouseleave", function () { hover = null; draw(); });
-          btn.addEventListener("focus", function () { hover = n.id; draw(); });
-          btn.addEventListener("blur", function () { hover = null; draw(); });
-          btn.addEventListener("click", function () { select(selected === n.id ? null : n.id); });
-          els[n.id] = btn;
-          list.appendChild(btn);
+          anchors[g.id] = sec;
+          els[g.id] = sec;
+          sections.appendChild(sec);
         });
-        box.appendChild(list);
-        els[g.id] = box;
-        inner.appendChild(box);
-      });
-      grid.appendChild(zone);
+        body.appendChild(head);
+        body.appendChild(sections);
+      } else {
+        body = h("div", { class: "nm-row" });
+        zg.forEach(function (g) {
+          var c = card(g);
+          if (c) { els[g.id] = c; body.appendChild(c); }
+        });
+      }
+      lane.appendChild(body);
+      layers.appendChild(lane);
     });
 
-    // ---- details panel
-    // Lives on <body>: an animated (transformed) ancestor would break position: fixed.
+    // ---- details panel (on <body>: an animated, transformed ancestor would break position: fixed)
     var panel = h("aside", { class: "nm-panel", hidden: "", "aria-live": "polite" });
     panel.nmOwner = root;
 
     root.innerHTML = "";
     root.appendChild(h("div", { class: "nm-toolbar" }, [search, legend]));
     root.appendChild(board);
-    document.body.appendChild(panel);
     if (data.caption) root.appendChild(h("p", { class: "nm-caption", text: data.caption }));
+    document.body.appendChild(panel);
 
     var hover = null, selected = null;
 
@@ -133,8 +213,12 @@
         facts.appendChild(h("dd", { text: f[1] }));
       });
       var links = h("ul", { class: "nm-links" });
-      (adj[id] || []).concat(adj[n.group] || []).forEach(function (e) {
-        var other = e.a === id || e.a === n.group ? e.b : e.a;
+      var seen = {};
+      edgesOf(id).forEach(function (e) {
+        var mine = e.a === id || e.a === n.group;
+        var other = mine ? e.b : e.a;
+        if (other === id || seen[other + e.type]) return;
+        seen[other + e.type] = true;
         var target = nodes[other] ? other : null;
         var item = h(target ? "button" : "span", { type: target ? "button" : null, class: "nm-link" }, [
           h("span", { class: "nm-swatch nm-t-" + e.type }),
@@ -151,6 +235,7 @@
         close,
         h("p", { class: "nm-kicker", text: [g.label, n.kind].filter(Boolean).join(" · ") }),
         h("h3", { text: n.label }),
+        n.sub ? h("p", { class: "nm-panel-sub", text: n.sub }) : null,
         n.about ? h("p", { class: "nm-about", text: n.about }) : null,
         (n.facts || []).length ? facts : null,
         links.children.length ? h("p", { class: "nm-kicker", text: "Connects to" }) : null,
@@ -162,51 +247,65 @@
     }
 
     // ---- lines
-    function anchor(el, toward, box) {
+    function rectIn(el, box) {
       var r = el.getBoundingClientRect();
-      var x = toward > r.left + r.width / 2 ? r.right : r.left;
-      return { x: x - box.left, y: r.top + r.height / 2 - box.top, side: x === r.right ? 1 : -1 };
+      return { l: r.left - box.left, t: r.top - box.top, r: r.right - box.left, b: r.bottom - box.top,
+               cx: r.left + r.width / 2 - box.left, cy: r.top + r.height / 2 - box.top };
+    }
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    function pathBetween(A, B) {
+      // Different heights: leave the bottom of the upper box and enter the top of the lower one, each
+      // point slid toward the other box so lines fan out instead of meeting in one spot.
+      if (A.b <= B.t || B.b <= A.t) {
+        var up = A.b <= B.t ? A : B, low = up === A ? B : A;
+        var x1 = clamp(low.cx, up.l + 14, up.r - 14), y1 = up.b;
+        var x2 = clamp(up.cx, low.l + 14, low.r - 14), y2 = low.t;
+        var dy = Math.max(24, (y2 - y1) / 2);
+        return "M" + x1 + "," + y1 + " C" + x1 + "," + (y1 + dy) + " " + x2 + "," + (y2 - dy) + " " + x2 + "," + y2;
+      }
+      // Side by side.
+      var left = A.cx < B.cx ? A : B, right = left === A ? B : A;
+      var sx = left.r, sy = left.cy, ex = right.l, ey = right.cy;
+      var dx = Math.max(24, (ex - sx) / 2);
+      return "M" + sx + "," + sy + " C" + (sx + dx) + "," + sy + " " + (ex - dx) + "," + ey + " " + ex + "," + ey;
     }
 
     function draw() {
-      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      [under, over].forEach(function (s) { while (s.firstChild) s.removeChild(s.firstChild); });
       var focus = hover || selected;
       var box = board.getBoundingClientRect();
-      svg.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
-      svg.setAttribute("width", box.width);
-      svg.setAttribute("height", box.height);
+      [under, over].forEach(function (s) {
+        s.setAttribute("viewBox", "0 0 " + box.width + " " + box.height);
+        s.setAttribute("width", box.width);
+        s.setAttribute("height", box.height);
+      });
 
       var related = {};
       if (focus) {
         related[focus] = true;
-        var fg = nodes[focus] && nodes[focus].group;
-        (adj[focus] || []).concat(adj[fg] || []).forEach(function (e) { related[e.a] = related[e.b] = true; });
+        edgesOf(focus).forEach(function (e) { related[e.a] = related[e.b] = true; });
       }
       root.classList.toggle("has-focus", !!focus);
       Object.keys(els).forEach(function (k) {
-        var inGroup = nodes[k] && related[nodes[k].group];
-        els[k].classList.toggle("is-related", !!(related[k] || inGroup));
+        var n = nodes[k];
+        els[k].classList.toggle("is-related", !!(related[k] || (n && related[n.group])));
       });
 
       data.edges.forEach(function (e) {
         if (hiddenTypes[e.type]) return;
         var fg = focus && nodes[focus] && nodes[focus].group;
-        var lit = focus && (e.a === focus || e.b === focus || e.a === fg || e.b === fg);
+        var lit = !!focus && (e.a === focus || e.b === focus || e.a === fg || e.b === fg);
         if (!e.base && !lit) return;
-        var A = els[e.a], B = els[e.b];
-        if (!A || !B || !A.offsetParent || !B.offsetParent) return;
-        var ra = A.getBoundingClientRect(), rb = B.getBoundingClientRect();
-        var p = anchor(A, rb.left + rb.width / 2, box), q = anchor(B, ra.left + ra.width / 2, box);
-        var dx = Math.max(40, Math.abs(q.x - p.x) / 2);
-        var d = "M" + p.x + "," + p.y + " C" + (p.x + p.side * dx) + "," + p.y + " " + (q.x + q.side * dx) + "," + q.y + " " + q.x + "," + q.y;
-        var path = document.createElementNS(SVGNS, "path");
-        path.setAttribute("d", d);
-        path.setAttribute("class", "nm-edge nm-t-" + e.type + (lit ? " is-lit" : "") + (focus && !lit ? " is-dim" : ""));
-        svg.appendChild(path);
+        var A = anchors[e.a], B = anchors[e.b];
+        if (!A || !B || A === B || !A.offsetParent || !B.offsetParent) return;
+        var path = svgEl("path", "nm-edge nm-t-" + e.type + (lit ? " is-lit" : "") + (focus && !lit ? " is-dim" : ""));
+        path.setAttribute("d", pathBetween(rectIn(A, box), rectIn(B, box)));
+        (lit ? over : under).appendChild(path);
       });
     }
 
-    // ---- search: dims everything that doesn't match
+    // ---- search: fades everything that doesn't match
     search.addEventListener("input", function () {
       var q = search.value.trim().toLowerCase();
       data.nodes.forEach(function (n) {
