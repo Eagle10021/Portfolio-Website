@@ -75,6 +75,8 @@
 .nm-lane-head p { margin: 4px 0 0; font-size: 12px; color: var(--nm-muted); }
 
 .nm-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.nm-row > .nm-card { flex: 1 1 150px; min-width: 150px; max-width: 250px; }
+.nm-row > .nm-card.has-chips { flex: 1.7 1 250px; max-width: 360px; }
 
 /* ---------------------------------------------------------------- cards */
 .nm-card {
@@ -156,6 +158,16 @@
 .nm-kicker { margin: 12px 0 5px; font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--nm-muted); }
 .nm-panel > .nm-kicker:first-of-type { margin-top: 0; color: var(--c, var(--nm-accent)); }
 .nm-about { margin: 0 0 8px; }
+.nm-tabs { display: flex; gap: 4px; margin: 10px 0 12px; padding: 3px; border-radius: 10px; background: color-mix(in srgb, var(--nm-muted) 12%, transparent); }
+.nm-tab {
+  flex: 1; padding: 6px 10px; font-size: 13px; font-weight: 600; color: var(--nm-muted);
+  background: none; border: 0; border-radius: 8px; cursor: pointer;
+}
+.nm-tab:hover { color: var(--nm-ink); }
+.nm-tab[aria-selected="true"] { color: var(--nm-ink); background: var(--nm-card); box-shadow: 0 1px 3px rgba(0, 0, 0, .15); }
+.nm-tabpanel[hidden] { display: none; }
+.nm-specs { margin-top: 0; row-gap: 7px; }
+.nm-facts.nm-specs dd { font-family: inherit; font-size: 13px; }
 .nm-facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 10px 0; font-size: 13px; }
 .nm-facts dt { color: var(--nm-muted); }
 .nm-facts dd { margin: 0; overflow-wrap: anywhere; font-family: ui-monospace, "JetBrains Mono", monospace; font-size: 12px; }

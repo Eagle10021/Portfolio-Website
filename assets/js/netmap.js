@@ -131,7 +131,7 @@
       el.appendChild(h("p", { class: "nm-card-kicker", text: g.label }));
       majors.forEach(function (n) { el.appendChild(titleRow(n)); anchors[n.id] = el; });
       var chips = chipsOf(g);
-      if (chips) el.appendChild(chips);
+      if (chips) { el.appendChild(chips); el.classList.add("has-chips"); }
       if (majors.length === 0 && !chips) return null;
       anchors[g.id] = el;
       return el;
@@ -229,6 +229,38 @@
       });
       var close = h("button", { type: "button", class: "nm-close", "aria-label": "Close details", text: "×" });
       close.addEventListener("click", function () { select(null); });
+
+      var overview = h("div", { class: "nm-tabpanel", role: "tabpanel" });
+      [
+        n.about ? h("p", { class: "nm-about", text: n.about }) : null,
+        (n.facts || []).length ? facts : null,
+        links.children.length ? h("p", { class: "nm-kicker", text: "Connects to" }) : null,
+        links.children.length ? links : null,
+        n.link ? h("a", { class: "nm-more", href: n.link.href, text: n.link.text || "Read the guide →" }) : null,
+      ].forEach(function (c) { if (c) overview.appendChild(c); });
+
+      // Overview / Specs tabs, only when there are specs to show.
+      var tabs = null, specsPanel = null;
+      if ((n.specs || []).length) {
+        specsPanel = h("div", { class: "nm-tabpanel", role: "tabpanel", hidden: "" });
+        var specs = h("dl", { class: "nm-facts nm-specs" });
+        n.specs.forEach(function (f) {
+          specs.appendChild(h("dt", { text: f[0] }));
+          specs.appendChild(h("dd", { text: f[1] }));
+        });
+        specsPanel.appendChild(specs);
+        tabs = h("div", { class: "nm-tabs", role: "tablist" });
+        [["Overview", overview], ["Specs", specsPanel]].forEach(function (t, i) {
+          var b = h("button", { type: "button", class: "nm-tab", role: "tab", "aria-selected": i === 0 ? "true" : "false", text: t[0] });
+          b.addEventListener("click", function () {
+            tabs.querySelectorAll(".nm-tab").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+            overview.hidden = t[1] !== overview;
+            specsPanel.hidden = t[1] !== specsPanel;
+          });
+          tabs.appendChild(b);
+        });
+      }
+
       panel.innerHTML = "";
       panel.style.setProperty("--c", colorOf(id));
       [
@@ -236,11 +268,9 @@
         h("p", { class: "nm-kicker", text: [g.label, n.kind].filter(Boolean).join(" · ") }),
         h("h3", { text: n.label }),
         n.sub ? h("p", { class: "nm-panel-sub", text: n.sub }) : null,
-        n.about ? h("p", { class: "nm-about", text: n.about }) : null,
-        (n.facts || []).length ? facts : null,
-        links.children.length ? h("p", { class: "nm-kicker", text: "Connects to" }) : null,
-        links.children.length ? links : null,
-        n.link ? h("a", { class: "nm-more", href: n.link.href, text: n.link.text || "Read the guide →" }) : null,
+        tabs,
+        overview,
+        specsPanel,
       ].forEach(function (c) { if (c) panel.appendChild(c); });
       panel.hidden = false;
       draw();
