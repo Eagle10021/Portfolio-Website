@@ -405,6 +405,10 @@
      "16 GB DDR3L-1600 (2 × 8 GB), the board's maximum"
     ],
     [
+     "Display",
+     "14\" 1366×768, open on a stand (status board)"
+    ],
+    [
      "Network",
      "Intel I218-LM gigabit Ethernet, Intel Wireless 7265"
     ],
@@ -601,6 +605,15 @@
    "kind": "Docker",
    "sub": "Wake word",
    "about": "",
+   "facts": []
+  },
+  {
+   "id": "screen",
+   "group": "g-voice",
+   "label": "Phrolova screen",
+   "kind": "Firefox kiosk",
+   "sub": "Status board",
+   "about": "The server's own screen shows a status board. Home Assistant turns it on and off, and dims it automatically using the wall tablet's light sensor.",
    "facts": []
   },
   {
@@ -1025,6 +1038,20 @@
   {
    "a": "zhezhi",
    "b": "ha",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "zhezhi",
+   "b": "screen",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "ha",
+   "b": "screen",
    "type": "uses",
    "label": "",
    "base": false
