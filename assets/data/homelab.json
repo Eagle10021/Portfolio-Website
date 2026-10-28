@@ -108,6 +108,12 @@
    "color": "#c9a227"
   },
   {
+   "id": "g-chat",
+   "zone": "server",
+   "label": "Chat and mail",
+   "color": "#4a6be0"
+  },
+  {
    "id": "g-tools",
    "zone": "server",
    "label": "Tools",
@@ -379,11 +385,11 @@
    "label": "Phrolova",
    "kind": "Server",
    "sub": "Latitude E5450 · Ubuntu",
-   "about": "A 2015 Dell laptop running 24/7 as my home server, with about thirty Docker containers.",
+   "about": "A 2015 Dell laptop running 24/7 as my home server, with about thirty-five Docker containers.",
    "facts": [
     [
      "Containers",
-     "~30"
+     "~35"
     ]
    ],
    "major": true,
@@ -680,6 +686,33 @@
    "facts": []
   },
   {
+   "id": "tuwunel",
+   "group": "g-chat",
+   "label": "Tuwunel",
+   "kind": "Docker",
+   "sub": "Family chat",
+   "about": "A private Matrix chat server for my family, with phone notifications, reachable only inside the VPN.",
+   "facts": []
+  },
+  {
+   "id": "livekit",
+   "group": "g-chat",
+   "label": "LiveKit",
+   "kind": "Docker",
+   "sub": "Voice and video calls",
+   "about": "Carries voice and video calls for the family chat.",
+   "facts": []
+  },
+  {
+   "id": "mail-relay",
+   "group": "g-chat",
+   "label": "Mail relay",
+   "kind": "Docker",
+   "sub": "Outgoing email",
+   "about": "Sends the server's emails, like password resets and alerts, through an email service on my own domain.",
+   "facts": []
+  },
+  {
    "id": "convertx",
    "group": "g-tools",
    "label": "ConvertX",
@@ -878,6 +911,41 @@
    "a": "ts-serve",
    "b": "snaglist",
    "type": "tailnet",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "ts-serve",
+   "b": "tuwunel",
+   "type": "tailnet",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "ts-serve",
+   "b": "livekit",
+   "type": "tailnet",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "tuwunel",
+   "b": "mail-relay",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "beszel",
+   "b": "mail-relay",
+   "type": "uses",
+   "label": "",
+   "base": false
+  },
+  {
+   "a": "mail-relay",
+   "b": "internet",
+   "type": "wan",
    "label": "",
    "base": false
   },
